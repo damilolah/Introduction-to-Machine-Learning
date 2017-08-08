@@ -1,11 +1,11 @@
 ---
-title       : Computer Wins
+title       : Insert the chapter title here
 description : Insert the chapter description here
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ef1b76935a
-## The Buzzword
+## A really bad movie
 
 Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
 
