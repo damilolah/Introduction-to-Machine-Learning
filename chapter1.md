@@ -1,11 +1,11 @@
 ---
-title       : Insert the chapter title here
+title       : Computer Wins
 description : Insert the chapter description here
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ef1b76935a
-## A really bad movie
+## The Buzzword
 
 Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
 
@@ -39,6 +39,34 @@ msg_success <- "Exactly! There seems to be a very bad action movie in the datase
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:c57adfc430
+## <<<New Exercise>>>
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
 --- type:NormalExercise lang:r xp:100 skills:1 key:4c2e1e4e93
 ## More movies
 
