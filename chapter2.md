@@ -25,14 +25,18 @@ The training set could be 60 - 70% of the entire dataset while the test set is t
 
 
 *** =instructions
-- Use read.csv() on train_url to create train. This is the train data
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
-
+- Plot `emp_data` with earnings on the x-axis and s_ratings on the y-axis
+- Use createDataPartition() function in R to partition your dataset
+- You training set should be 60% of the entire dataset 
+- Print out the training and test sets  
+- Check the dimension of both datasets to know more about the data
 *** =hint
-- Use `str()` for the first instruction.
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`.
+- Use `plot()` for the first instruction.
+- Make sure yo have loaded the caret package into your workspace by typing `library(caret)` 
+- type ?createDataPartition to know how to use the createDataPartition() function
+- Make p=0.6 and set list=FALSE
+- To print a variable to the console, simply type the name of the variable on a new line.
+- Use the dim() function on training and test set for the fourth instruction
 
 *** =pre_exercise_code
 ```{r}
@@ -46,45 +50,107 @@ rm(Movies)
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# Loading the required package
 
-# Check out the structure of movie_selection
+library(caret)
+
+# Creating the dataset
+earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
+
+s_rating<- c(50, 60, 80, 75, 50, 70, 75, 60, 50, 65, 70, 71,80, 82, 85, 80, 88, 90, 90, 60)
+
+emp_data  <- data.frame(earnings, s_rating)
+
+emp_data 
+
+dim(emp_data)
+
+# Some exploratory data analyses - plot emp_data
 
 
-# Select movies that have a rating of 5 or higher: good_movies
+# Set seed so that your analysis can be reproducible
+set.seed(222)
+
+# Partition the data into training and test datasets
+
+inTrain <- 
+
+training <- emp_data[inTrain,]
+
+test <- 
+
+# Print out training and test sets and show the dimensions of each set
 
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
 
 ```
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# Loading the required package
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+library(caret)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# Creating the dataset
+earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
+
+s_rating<- c(50, 60, 80, 75, 50, 70, 75, 60, 50, 65, 70, 71,80, 82, 85, 80, 88, 90, 90, 60)
+
+emp_data  <- data.frame(earnings, s_rating)
+
+emp_data 
+
+dim(emp_data)
+
+# Some exploratory data analyses 
+par(cex=.8)
+plot(earnings, s_rating, col = s_rating, main="Regression Modelling")
+
+
+# Set seed so that your analysis can be reproducible
+set.seed(222)
+
+# Partition the data into training and test datasets
+
+inTrain <- createDataPartition(y= emp_data$s_rating, p=0.6, list=FALSE)
+
+training <- emp_data[inTrain,]
+
+test <- emp_data[-inTrain,]
+
+# Print out training and test sets and show the dimensions of each set
+
+training
+
+test
+
+dim(training)
+
+dim(test)
+
+
+
+
 ```
 
 *** =sct
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+test_function("plot", args = "",
+              not_called_msg = "You didn't call `plot()`!",
+              incorrect_msg = "You didn't call `plot()` with the correct argument")
 
-test_object("good_movies")
 
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
+test_function("dim", args = "",
+              not_called_msg = "You didn't call `dim()`!",
+              incorrect_msg = "You didn't call `dim()` with the correct argument")
+
+test_object("inTrain")
+test_object("training")
+test_object("test")
+
 
 test_error()
 
