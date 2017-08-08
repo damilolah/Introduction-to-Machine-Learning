@@ -66,9 +66,6 @@ dim(emp_data)
 # Some exploratory data analyses - plot emp_data
 
 
-# Set seed so that your analysis can be reproducible
-set.seed(222)
-
 # Partition the data into training and test datasets
 
 inTrain <- 
@@ -102,14 +99,9 @@ emp_data
 dim(emp_data)
 
 # Some exploratory data analyses 
-#par(cex=.8)
-#plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
-#library(ggplot2)
+par(cex=.8)
+plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
 
-#ggplot(emp_data, aes(x = earnings, y = s_rating, col = s_rating)) + geom_point()
-
-# Set seed so that your analysis can be reproducible
-set.seed(222)
 
 # Partition the data into training and test datasets
 
