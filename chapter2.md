@@ -158,7 +158,20 @@ The `lm()` function in R is an implementation of the Linear Regression algorithm
 
 You will create a linear model called `reg_model` by plugging in the training set into the `lm()` function.
 
+This model is simply a line. Regression modelling is used to find equations(lines) that fit data.
 
+The equation is of the form:
+
+y = a + bx + ei
+
+y is what we want to predict and x includes all the predictors required to form the model above.
+
+a and b are coefficients determined by the `lm()` function we’ll use shortly. ei stands for error as a result of the factors we did not consider. 
+The best model is one that minimizes ei the most. 
+
+Regression model is easy to implement but it often produces low performance models. This method is useful when the variable involved can be modelled in a linear way.
+
+For example, increase in age leads to increase in weight, or increase in age leads to decrease in the number of hairs on head. This cannot be used in showing increase in library visitor per day of the week. This is usually non-linear.
 
 *** =instructions
 - Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis
