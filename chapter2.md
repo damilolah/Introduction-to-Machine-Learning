@@ -25,7 +25,7 @@ The training set could be 60 - 70% of the entire dataset while the test set is t
 
 
 *** =instructions
-- Check out the structure of `movie_selection`.
+- Use read.csv() on train_url to create train. This is the train data
 - Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
 - Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
 
