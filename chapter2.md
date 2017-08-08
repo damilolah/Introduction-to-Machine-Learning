@@ -8,11 +8,11 @@ description : Insert the chapter description here
 
 You will create a dataset called `emp_data` having two attributes - earnings and s_ratings and 20 observations
 
-emp_data = Employee dataset
+`emp_data` = Employee dataset
 
-earnings = What each employee earns in dollars per day
+`earnings` = What each employee earns in dollars per day
 
-s_ratings = how satisfied the employee is with his/her wage
+`s_ratings` = how satisfied the employee is with his/her wage
 
 From this dataset, we will try to predict a new employee's satisfaction rating when he is paid $200, $400, or $1200 per day.
 So, earnings is the predictor and s_ratings is the class we'll predict.
