@@ -66,6 +66,11 @@ dim(emp_data)
 # Some exploratory data analyses - plot emp_data
 
 
+
+#Set seed to make your analysis reproducible
+
+set.seed(222)
+
 # Partition the data into training and test datasets
 
 inTrain <- 
@@ -75,8 +80,6 @@ training <- emp_data[inTrain,]
 test <- 
 
 # Print out training and test sets and show the dimensions of each set
-
-
 
 ```
 
@@ -98,18 +101,22 @@ emp_data
 
 dim(emp_data)
 
+
 # Some exploratory data analyses 
 par(cex=.8)
 plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
 
+#Set seed to make your analysis reproducible
+
+set.seed(222)
 
 # Partition the data into training and test datasets
 
 inTrain <- createDataPartition(y= emp_data$s_rating, p=0.6, list=FALSE)
 
-training <- emp_data[inTrain,]
+training <- emp_data[inTrain, ]
 
-test <- emp_data[-inTrain,]
+test <- emp_data[-inTrain, ]
 
 # Print out training and test sets and show the dimensions of each set
 
@@ -120,8 +127,6 @@ test
 dim(training)
 
 dim(test)
-
-
 
 
 ```
@@ -135,7 +140,7 @@ test_object("training")
 test_object("test")
 
 
-test_function("dim", args = "",
+test_function("dim",
               not_called_msg = "You didn't call `dim()`")
 
 

@@ -56,7 +56,7 @@ Answer = Machine Learning!
 Processes involved in Machine Learning:
 
 - Get data
-- Preprocess (Clean, Prepare, Manipulate Data &amp; Exploratory Data Analysis)
+- Preprocess (Clean, Prepare, Manipulate Data & Exploratory Data Analysis)
 - Train Model
 - Test Model
 - Post-Process (Visualize, Evaluate, Improve Model & Present)
