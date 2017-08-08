@@ -16,13 +16,13 @@ According to Wikipedia, Arthur Samuel in 1959 defined Machine Learning as the su
 
 Which of the following is not a Machine Learning Task?
 *** =instructions
-- Adventure
-- Action
-- Animation
-- Comedy
+- Self driving cars
+- A program that prints the next 20 leap years
+- A program that categorizes emails into spam and non-spam
+- Predicting galaxies
 
 *** =hint
-Have a look at the plot. Which color does the point with the lowest rating have?
+Take a look at the options. Which task requires explicitly programming the computer?
 
 *** =pre_exercise_code
 ```{r}
