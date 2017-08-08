@@ -36,7 +36,7 @@ The training set could be 60 - 70% of the entire dataset while the test set is t
 - type ?createDataPartition to know how to use the createDataPartition() function
 - Make p=0.6 and set list=FALSE
 - To print a variable to the console, simply type the name of the variable on a new line.
-- Use the dim() function on training and test set for the fourth instruction
+- Use the `dim()` function on training and test set for the fourth instruction
 
 *** =pre_exercise_code
 ```{r}
@@ -152,24 +152,12 @@ success_msg("Good work!")
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:a2a9af68a2
-## Create Model
+## Creating your Model
 
-You will create a dataset called `emp_data` having two attributes - earnings and s_rating and 20 observations
+The `lm()` function in R is an implementation of the Linear Regression algorithm. 
 
-`emp_data` = Employee dataset
+You will create a linear model called `reg_model` by plugging in the training set into the `lm()` function.
 
-`earnings` = What each employee earns in dollars per day
-
-`s_rating` = how satisfied the employee is with his/her wage
-
-From this dataset, we will try to predict a new employee's satisfaction rating when he is paid $200, $400, or $1200 per day.
-So, earnings is the predictor and s_rating is the class we'll predict.
-
-This exercise uses just one attribute for prediction and that is employee’s `earnings`. 
-
-It is Machine learning practice to partition dataset for analysis into Training and Test sets.
-
-The training set could be 60 - 70% of the entire dataset while the test set is the percentage remaining.
 
 
 *** =instructions
