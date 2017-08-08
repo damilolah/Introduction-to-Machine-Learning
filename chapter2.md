@@ -139,12 +139,12 @@ dim(test)
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
 test_function("plot", args = "",
-              not_called_msg = "You didn't call `plot()`!",
+              not_called_msg = "You didn't call `plot()`",
               incorrect_msg = "You didn't call `plot()` with the correct argument")
 
 
 test_function("dim", args = "",
-              not_called_msg = "You didn't call `dim()`!",
+              not_called_msg = "You didn't call `dim()`",
               incorrect_msg = "You didn't call `dim()` with the correct argument")
 
 test_object("inTrain")
