@@ -191,7 +191,7 @@ For example, increase in age leads to increase in weight, or increase in age lea
 *** =pre_exercise_code
 ```{r}
 # You can also prepare your dataset in a specific way in the pre exercise code
-load(url("https://s3.amazonaws.com/assets.datacamp.com/course/teach/ml.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/ml.RData"))
 
 
 # Clean up the environment
@@ -252,11 +252,11 @@ abline(reg_model)
 
 # Print out coefficient 'a'
 
-coef(reg_model)[1]
+a <- coef(reg_model)[1]
 
 # Print out coefficient 'b'
 
-coef(reg_model)[2]
+b <- coef(reg_model)[2]
 
 
 ```
