@@ -6,16 +6,16 @@ description : Insert the chapter description here
 --- type:NormalExercise lang:r xp:100 skills:1 key:4c2e1e4e93
 ## Knowing Your Data
 
-You will create a dataset called `emp_data` having two attributes - earnings and s_ratings and 20 observations
+You will create a dataset called `emp_data` having two attributes - earnings and s_rating and 20 observations
 
 `emp_data` = Employee dataset
 
 `earnings` = What each employee earns in dollars per day
 
-`s_ratings` = how satisfied the employee is with his/her wage
+`s_rating` = how satisfied the employee is with his/her wage
 
 From this dataset, we will try to predict a new employee's satisfaction rating when he is paid $200, $400, or $1200 per day.
-So, earnings is the predictor and s_ratings is the class we'll predict.
+So, earnings is the predictor and s_rating is the class we'll predict.
 
 This exercise uses just one attribute for prediction and that is employee’s `earnings`. 
 
@@ -25,7 +25,7 @@ The training set could be 60 - 70% of the entire dataset while the test set is t
 
 
 *** =instructions
-- Plot `emp_data` with earnings on the x-axis and s_ratings on the y-axis
+- Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis
 - Use createDataPartition() function in R to partition your dataset
 - You training set should be 60% of the entire dataset 
 - Print out the training and test sets  
@@ -41,11 +41,9 @@ The training set could be 60 - 70% of the entire dataset while the test set is t
 *** =pre_exercise_code
 ```{r}
 # You can also prepare your dataset in a specific way in the pre exercise code
-load(url("https://s3.amazonaws.com/assets.datacamp.com/course/teach/movies.RData"))
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"), c("Genre", "Rating", "Run")]
-
+#None
 # Clean up the environment
-rm(Movies)
+
 ```
 
 *** =sample_code
@@ -104,9 +102,11 @@ emp_data
 dim(emp_data)
 
 # Some exploratory data analyses 
-par(cex=.8)
-plot(earnings, s_rating, col = s_rating, main="Regression Modelling")
+#par(cex=.8)
+#plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
+#library(ggplot2)
 
+#ggplot(emp_data, aes(x = earnings, y = s_rating, col = s_rating)) + geom_point()
 
 # Set seed so that your analysis can be reproducible
 set.seed(222)
@@ -138,18 +138,14 @@ dim(test)
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
-test_function("plot", args = "",
-              not_called_msg = "You didn't call `plot()`",
-              incorrect_msg = "You didn't call `plot()` with the correct argument")
-
-
-test_function("dim", args = "",
-              not_called_msg = "You didn't call `dim()`",
-              incorrect_msg = "You didn't call `dim()` with the correct argument")
-
 test_object("inTrain")
 test_object("training")
 test_object("test")
+
+
+test_function("dim", args = "",
+              not_called_msg = "You didn't call `dim()`")
+
 
 
 test_error()
