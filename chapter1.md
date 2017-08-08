@@ -15,6 +15,7 @@ Using two (2) examples, we'll see the processes involved in doing "Machine Learn
 According to Wikipedia, Arthur Samuel in 1959 defined Machine Learning as the subfield of computer science that gives computers the ability to learn without being explicitly programmed.
 
 Which of the following is not a Machine Learning Task?
+
 *** =instructions
 - Self driving cars
 - A program that prints the next 20 leap years
@@ -26,14 +27,9 @@ Take a look at the options. Which task requires explicitly programming the compu
 
 *** =pre_exercise_code
 ```{r}
-# The pre exercise code runs code to initialize the user's workspace.
-# You can use it to load packages, initialize datasets and draw a plot in the viewer
+# None
 
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
 
-library(ggplot2)
-
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
 ```
 
 *** =sct
@@ -41,19 +37,49 @@ ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
+msg_success <- "Exactly! Even I can calculate the next 50 leap years and I'm only human."
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c57adfc430
-## <<<New Exercise>>>
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:c57adfc430
+## A Model - The Secret Weapon
 
+
+A human can learn the voices of 10 (maybe 100) co-workers and be able to identify them without looking while a machine can learn the voices of over 10,000 people and be able to predict whose voice it is.
+Computer wins!
+
+How?  
+
+Answer = Machine Learning!
+
+Processes involved in Machine Learning:
+
+- Get data
+- Preprocess (Clean, Prepare, Manipulate Data &amp; Exploratory Data Analysis)
+- Train Model
+- Test Model
+- Post-Process (Visualize, Evaluate, Improve Model & Present)
+
+The first two steps are typical for any analysis involving data.
+Creating a model is a critical part of the machine's studies.
+
+A model is an artifact or a formula created by the process of learning from previous data.
+When you plug in historical data into a machine learning algorithm, you get a model.
+
+In the above example, the machine uses a model that takes in an input (a person’s voice), does some processing and predicts the name of the person as the output. 
+
+Testing and evaluating the models you will create comes up in later chapters.
+You will also learn to improve your model.
+
+A good machine learning model depends on which of the following? 
 
 *** =instructions
-
+- Type of the data and software or statistical tool used for analysis
+- Type of machine learning algorithm used and software or statistical tool used for analysis
+- The quality of the dataset and type of machine learning algorithm used
 *** =hint
-
+Clean historical data + Good Machine Learning algorithm = Great Model!
 *** =pre_exercise_code
 ```{r}
 
@@ -71,7 +97,11 @@ test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 
 *** =sct
 ```{r}
+# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly!"
+test_mc(correct = 3, feedback_msgs = c(msg_bad, msg_bad, msg_success))
 ```
 --- type:NormalExercise lang:r xp:100 skills:1 key:4c2e1e4e93
 ## More movies
