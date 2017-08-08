@@ -135,6 +135,10 @@ dim(test)
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
+
+test_function("plot",
+              not_called_msg = "You didn't call `plot()`")
+
 test_object("inTrain")
 test_object("training")
 test_object("test")
@@ -174,108 +178,85 @@ Regression model is easy to implement but it often produces low performance mode
 For example, increase in age leads to increase in weight, or increase in age leads to decrease in the number of hairs on head. This cannot be used in showing increase in library visitor per day of the week. This is usually non-linear.
 
 *** =instructions
-- Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis
-- Use createDataPartition() function in R to partition your dataset
-- You training set should be 60% of the entire dataset 
-- Print out the training and test sets  
-- Check the dimension of both datasets to know more about the data
+- Create a linear model called reg_model
+- Plot the `training` set with earnings on the x-axis and s_rating on the y-axis
+- Draw a regression line on the plot above that represents the model reg_model 
+- Print out the coefficients a and b 
+
 *** =hint
-- Use `plot()` for the first instruction.
-- Make sure yo have loaded the caret package into your workspace by typing `library(caret)` 
-- type ?createDataPartition to know how to use the createDataPartition() function
-- Make p=0.6 and set list=FALSE
-- To print a variable to the console, simply type the name of the variable on a new line.
-- Use the dim() function on training and test set for the fourth instruction
+- Type `?lm` to learn how to use the lm() function
+- Use `abline()` function to fit a line to the plot  
+- type ?coef to know how to use the coef() function
 
 *** =pre_exercise_code
 ```{r}
 # You can also prepare your dataset in a specific way in the pre exercise code
-#None
+load(url("https://s3.amazonaws.com/assets.datacamp.com/course/teach/ml.RData"))
+
+
 # Clean up the environment
 
 ```
 
 *** =sample_code
 ```{r}
-# Loading the required package
 
-library(caret)
+# Create a linear model called reg_model
 
-# Creating the dataset
-earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
+reg_model <- 
 
-s_rating<- c(50, 60, 80, 75, 50, 70, 75, 60, 50, 65, 70, 71,80, 82, 85, 80, 88, 90, 90, 60)
 
-emp_data  <- data.frame(earnings, s_rating)
+# Know more about your model
 
-emp_data 
+summary(reg_model)
 
-dim(emp_data)
-
-# Some exploratory data analyses - plot emp_data
+# Plot the training set
 
 
 
-#Set seed to make your analysis reproducible
+# Draw a regression line that represents the model reg_model
 
-set.seed(222)
 
-# Partition the data into training and test datasets
 
-inTrain <- 
+# Print out coefficient 'a'
 
-training <- emp_data[inTrain,]
 
-test <- 
 
-# Print out training and test sets and show the dimensions of each set
+# Print out coefficient 'b'
+
+
+
+
 
 ```
 
 *** =solution
 ```{r}
 
-# Loading the required package
+# Create a linear model called reg_model
 
-library(caret)
+reg_model <- lm(s_rating ~ earnings, data=training)
 
-# Creating the dataset
-earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
+# Know more about your model
 
-s_rating<- c(50, 60, 80, 75, 50, 70, 75, 60, 50, 65, 70, 71,80, 82, 85, 80, 88, 90, 90, 60)
+summary(reg_model)
 
-emp_data  <- data.frame(earnings, s_rating)
-
-emp_data 
-
-dim(emp_data)
-
-
-# Some exploratory data analyses 
+# Plot the training set
 par(cex=.8)
-plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
+plot(training$earnings, training$s_rating, col = s_rating, main="Regression Modelling")
 
-#Set seed to make your analysis reproducible
+# Draw a regression line that represents the model reg_model
+abline(reg_model)
 
-set.seed(222)
 
-# Partition the data into training and test datasets
 
-inTrain <- createDataPartition(y= emp_data$s_rating, p=0.6, list=FALSE)
+# Print out coefficient 'a'
 
-training <- emp_data[inTrain, ]
+coef(reg_model)[1]
 
-test <- emp_data[-inTrain, ]
+# Print out coefficient 'b'
 
-# Print out training and test sets and show the dimensions of each set
-
-training
-
-test
-
-dim(training)
-
-dim(test)
+coef(reg_model)[2]
 
 
 ```
@@ -284,15 +265,15 @@ dim(test)
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
-test_object("inTrain")
-test_object("training")
-test_object("test")
+test_object("reg_model")
 
 
-test_function("dim",
-              not_called_msg = "You didn't call `dim()`")
 
+test_function("abline",
+              not_called_msg = "You didn't call `abline()`")
 
+test_object("a")
+test_object("b")
 
 test_error()
 
