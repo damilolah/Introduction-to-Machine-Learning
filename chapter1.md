@@ -5,10 +5,16 @@ attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ef1b76935a
-## A really bad movie
+## The Buzzword
 
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
+The term "Machine Learning" has been in town for a while now. It is even being overused by some but to others, it will remain a black box.
+This course will educate you on the idea of Machine Learning, from getting the data to improving the accuracy of the models you will create. 
+Using two (2) examples, we'll see the processes involved in doing "Machine Learning". You should get the hang of this black box after this course.
 
+
+According to Wikipedia, Arthur Samuel in 1959 defined Machine Learning as the subfield of computer science that gives computers the ability to learn without being explicitly programmed.
+
+Which of the following is not a Machine Learning Task?
 *** =instructions
 - Adventure
 - Action
@@ -37,7 +43,10 @@ ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
 msg_bad <- "That is not correct!"
 msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
-```--- type:NormalExercise lang:r xp:100 skills:1 key:c57adfc430
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:c57adfc430
 ## <<<New Exercise>>>
 
 
