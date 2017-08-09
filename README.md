@@ -4,10 +4,10 @@
 
 This is an instructional Resource on Machine Learning brought to you by Digital Libraries Initiatives at North Carolina State University. <a href=https://www.datacamp.com target="_blank">DataCamp</a> course. 
 
-Course Instructor:  Ruth Okoilu
-university       : North Carolina State University
-difficulty_level : 2
-time_needed      : 2 hours
+* `Course Instructor`:  `Ruth Okoilu`
+* `university `      : `North Carolina State University`
+* `difficulty_level` : `2`
+* `time_needed`      : `2 hours`
 
 Changes you make to this GitHub repository are automatically reflected in the linked DataCamp course. This means that you can enjoy all the advantages of version control, collaboration, issue handling ... of GitHub.
 
