@@ -323,13 +323,12 @@ predict_happiness(200)
 
 
 
-# Use predict() built in R function to predict corresponding satisfaction for test data
 
 # pred_rating - Predicted satisfaction rating for test set
 
 pred_rating <- predict(reg_model, test)
 
-# Compare test s_rating with predicted test s_rating
+# Compare test set s_rating with predicted s_rating for the test set
 print(data.frame(test$s_rating, pred_rating))
 
 
