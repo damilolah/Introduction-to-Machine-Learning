@@ -294,7 +294,7 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:e98de586cb
 ## Test Model
 
-Here, you will create a function called predict happiness to test your model. 
+Here, you will create a function called `predict_happiness` to test your model. 
 You are to predict satisfaction when employee is paid $200, $400, and $1200 using predict_hapiness function.
 
 
