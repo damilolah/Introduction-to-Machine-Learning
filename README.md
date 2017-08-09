@@ -2,7 +2,9 @@
 <a href=https://www.datacamp.com//teach/repositories/99583034/go target="_blank"><img src="https://s3.amazonaws.com/assets.datacamp.com/img/github/content-engineering-repos/course_button.png" width="150"></a>
 <a href=https://www.datacamp.com//teach/repositories target="_blank"><img src="https://s3.amazonaws.com/assets.datacamp.com/img/github/content-engineering-repos/dashboard_button.png" width="150"></a>
 
-This is an instructional Resource on Machine Learning brought to you by Digital Libraries Initiatives at North Carolina State University. <a href=https://www.datacamp.com target="_blank">DataCamp</a> course. 
+This is an instructional Resource on Machine Learning brought to you by Digital Libraries Initiatives at North Carolina State University. 
+
+This course is available on <a href=https://www.datacamp.com/teach/repositories/99583034/go target="_blank">DataCamp</a>
 
 * `Course Instructor`:  `Ruth Okoilu`
 * `university `      : `North Carolina State University`
