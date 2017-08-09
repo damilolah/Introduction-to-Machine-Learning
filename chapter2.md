@@ -77,10 +77,6 @@ dim(emp_data)
 
 
 
-#Set seed to make your analysis reproducible
-
-#set.seed(222)
-
 # Partition the data into training and test datasets
 
 inTrain <- 
@@ -116,9 +112,6 @@ dim(emp_data)
 par(cex=.8)
 plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
 
-#Set seed to make your analysis reproducible
-
-set.seed(222)
 
 # Partition the data into training and test datasets
 
@@ -180,15 +173,24 @@ y = a + bx + ei
 
 y is what we want to predict and x includes all the predictors required to form the model above.
 
-a and b are coefficients determined by the `lm()` function we’ll use shortly. ei stands for error as a result of the factors we did not consider. 
+a and b are coefficients determined by the `lm()` function we’ll use shortly. `ei` stands for errors as a result of the factors we did not consider. 
 The best model is one that minimizes ei the most. 
 
 Regression model is easy to implement but it often produces low performance models. This method is useful when the variable involved can be modelled in a linear way.
 
 For example, increase in age leads to increase in weight, or increase in age leads to decrease in the number of hairs on head. This cannot be used in showing increase in library visitor per day of the week. This is usually non-linear.
 
+`lm()` function is used like this: Suppose `myData` is the name of a dataset and I want to predict `class` an attribute in the dataset `myData` using `sex` (another attribute in myData) as my predictor 
+
+reg_model <- lm(class, sex, data=myData)
+We can get a and b from reg_model using the coef function:
+
+a <- coef(reg_model)[1]
+
+b <- coef(reg_model)[2]
+
 *** =instructions
-- Create a linear model called reg_model
+- Create a linear model called `reg_model` on the training dataset
 - Plot the `training` set with earnings on the x-axis and s_rating on the y-axis
 - Draw a regression line on the plot above that represents the model reg_model 
 - Print out the coefficients a and b 
@@ -268,6 +270,9 @@ a <- coef(reg_model)[1]
 
 b <- coef(reg_model)[2]
 
+a
+
+b
 
 ```
 
@@ -295,11 +300,12 @@ success_msg("Good work!")
 ## Test Model
 
 Here, you will create a function called `predict_happiness` to test your model. 
-You are to predict satisfaction when employee is paid $200, $400, and $1200 using predict_hapiness function.
+You are to predict satisfaction when employee is paid `$200`, `$400`, and `$1200` using predict_hapiness function.
 
 
 predict_happiness <- function(x){
 
+# Get coefficients a and b from reg_model
   a = 
   b =
   Result<- a + (b * x) 
@@ -307,6 +313,8 @@ predict_happiness <- function(x){
   cat(sprintf("The employee should be %s%s satisfied", Result, percent))
 }
 
+
+Instead of using `predict_happiness` function, you can also use the built-in `predict` funtion provided by caret package.
 
 *** =instructions
 - Complete the predict_happiness function 
@@ -328,6 +336,8 @@ predict_happiness <- function(x){
 ```{r}
 
 # Create predict_happiness() function
+# Get coefficients a and b from reg_model
+
 predict_happiness <- function(x){
 
   a = coef(reg_model)[1]
@@ -340,7 +350,6 @@ predict_happiness <- function(x){
 # Predict satisfaction when employee is paid $200, $400, and $1200 
 
 predict_happiness(200)
-
 
 
 
