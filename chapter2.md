@@ -321,9 +321,12 @@ predict_happiness <- function(x){
 - Complete the predict_happiness function 
 - Insert $200, $400 and then $1200
 - Instead of using `predict_happiness` function, you can also use the built-in `predict` funtion provided by caret package.The predict function takes in the model and the test dataset like this
-`predict(red_model, test)`
+`predict(red_model, test)`. Put all your predicted values in a variable called `pred_rating` as in `pred_rating <- predicted(reg_model, test)`
+- Compare pred_rating with the s_rating column in the test data.
 
 *** =hint
+- Get coefficents `a` and `b` from  `reg_model` using the `coef()` function as in previous exercises.
+- Use the data.frame() function to create a table with two variables pred_rating and test$s_rating.
 
 *** =pre_exercise_code
 ```{r}
@@ -332,6 +335,33 @@ predict_happiness <- function(x){
 
 *** =sample_code
 ```{r}
+
+# Create predict_happiness() function
+# Get coefficients a and b from reg_model
+
+predict_happiness <- function(x){
+
+  a = 
+  b = 
+  Result<- a + (b * x) 
+  percent<- "%"
+  cat(sprintf("The employee should be %s%s satisfied", Result, percent))
+}
+
+# Predict satisfaction when employee is paid $200, $400, and $1200 
+
+predict_happiness(200)
+
+
+
+
+# pred_rating - Predicted satisfaction rating for test set
+
+pred_rating <- 
+
+# Compare test set s_rating with predicted s_rating for the test set
+
+
 
 ```
 
@@ -363,8 +393,36 @@ predict_happiness(200)
 pred_rating <- predict(reg_model, test)
 
 # Compare test set s_rating with predicted s_rating for the test set
-print(data.frame(test$s_rating, pred_rating))
+data.frame(pred_rating, test$s_rating)
 
+
+```
+
+*** =sct
+```{r}
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:a299b37ba8
+## Check Accuracy
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
 
 ```
 
