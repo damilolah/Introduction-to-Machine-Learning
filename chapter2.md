@@ -12,27 +12,37 @@ You will create a dataset called `emp_data` having two attributes - earnings and
 
 `earnings` = What each employee earns in dollars per day
 
-`s_rating` = how satisfied the employee is with his/her wage
+`s_rating` = How satisfied the employee is with his/her wage
 
 From this dataset, we will try to predict a new employee's satisfaction rating when he is paid $200, $400, or $1200 per day.
 So, earnings is the predictor and s_rating is the class we'll predict.
 
 This exercise uses just one attribute for prediction and that is employee’s `earnings`. 
 
-It is Machine learning practice to partition dataset for analysis into Training and Test sets.
+It is machine learning practice to partition dataset for analysis into Training and Test sets.
 
 The training set could be 60 - 70% of the entire dataset while the test set is the percentage remaining.
+The createDataPartition() function that comes with the caret package can be used to split the data. This function is used like so:
+Suppose `myData` is the name of a dataset and I want to predict `class` an attribute in the dataset `myData` .  
+
+inTrain <- createDataPartition(y= myData$class, p=0.7, list=FALSE)
+
+training <- myData[inTrain, ]
+
+test <- myData[-inTrain, ]
+
+`p` is set to `0.7` because we need 70% of the whole data and list is set to FALSE because we don't want the function to return `inTrain` as a list.
 
 
 *** =instructions
-- Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis
+- Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis. Plot function is used like this: `plot(x, y, data=myData)`
 - Use createDataPartition() function in R to partition your dataset
-- You training set should be 60% of the entire dataset 
+- Your training set should be 60% of the entire dataset 
 - Print out the training and test sets  
 - Check the dimension of both datasets to know more about the data
 *** =hint
-- Use `plot()` for the first instruction.
-- Make sure yo have loaded the caret package into your workspace by typing `library(caret)` 
+- Use `plot()` for the first instruction. 
+- Make sure you have loaded the caret package into your workspace by typing `library(caret)` 
 - type ?createDataPartition to know how to use the createDataPartition() function
 - Make p=0.6 and set list=FALSE
 - To print a variable to the console, simply type the name of the variable on a new line.
@@ -69,7 +79,7 @@ dim(emp_data)
 
 #Set seed to make your analysis reproducible
 
-set.seed(222)
+#set.seed(222)
 
 # Partition the data into training and test datasets
 
@@ -139,7 +149,7 @@ dim(test)
 test_function("plot",
               not_called_msg = "You didn't call `plot()`")
 
-test_object("inTrain")
+#test_object("inTrain")
 test_object("training")
 test_object("test")
 
@@ -284,11 +294,23 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:e98de586cb
 ## Test Model
 
-We could create a function to test our model
+Here, you will create a function called predict happiness to test your model. 
+You are to predict satisfaction when employee is paid $200, $400, and $1200 using predict_hapiness function.
 
+
+predict_happiness <- function(x){
+
+  a = 
+  b =
+  Result<- a + (b * x) 
+  percent<- "%"
+  cat(sprintf("The employee should be %s%s satisfied", Result, percent))
+}
 
 
 *** =instructions
+- Complete the predict_happiness function 
+- Insert $200, $400 and then $
 
 *** =hint
 
@@ -315,7 +337,7 @@ predict_happiness <- function(x){
   cat(sprintf("The employee should be %s%s satisfied", Result, percent))
 }
 
-# Predict satisfaction when employee is paid $200, $400, and $1200 using predict_hapiness function
+# Predict satisfaction when employee is paid $200, $400, and $1200 
 
 predict_happiness(200)
 
