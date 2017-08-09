@@ -7,9 +7,9 @@ This is an instructional Resource on Machine Learning brought to you by Digital 
 This course is available on <a href=https://www.datacamp.com/teach/repositories/99583034/go target="_blank">DataCamp</a>
 
 * `Course Instructor`:  `Ruth Okoilu`
-* `university `      : `North Carolina State University`
-* `difficulty_level` : `2`
-* `time_needed`      : `2 hours`
+* `University `      : `North Carolina State University`
+* `Difficulty_level` : `2`
+* `Time_needed`      : `2 hours`
 
 Changes you make to this GitHub repository are automatically reflected in the linked DataCamp course. This means that you can enjoy all the advantages of version control, collaboration, issue handling ... of GitHub.
 
