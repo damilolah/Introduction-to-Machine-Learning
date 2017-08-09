@@ -156,7 +156,7 @@ success_msg("Good work!")
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:a2a9af68a2
-## Creating your Model
+## Create Model
 
 The `lm()` function in R is an implementation of the Linear Regression algorithm. 
 
@@ -280,3 +280,62 @@ test_error()
 success_msg("Good work!")
 ```
 
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:e98de586cb
+## Test Model
+
+We could create a function to test our model
+
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+# Create predict_happiness() function
+predict_happiness <- function(x){
+
+  a = coef(reg_model)[1]
+  b = coef(reg_model)[2]
+  Result<- a + (b * x) 
+  percent<- "%"
+  cat(sprintf("The employee should be %s%s satisfied", Result, percent))
+}
+
+# Predict satisfaction when employee is paid $200, $400, and $1200 using predict_hapiness function
+
+predict_happiness(200)
+
+
+
+
+
+# Use predict() built in R function to predict corresponding satisfaction for test data
+
+# pred_rating - Predicted satisfaction rating for test set
+
+pred_rating <- predict(reg_model, test)
+
+# Compare test s_rating with predicted test s_rating
+print(data.frame(test$s_rating, pred_rating))
+
+
+```
+
+*** =sct
+```{r}
+
+```
