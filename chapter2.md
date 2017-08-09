@@ -300,18 +300,16 @@ success_msg("Good work!")
 ## Test Model
 
 Here, you will create a function called `predict_happiness` to test your model. 
-You are to predict satisfaction when employee is paid `$200`, `$400`, and `$1200` using predict_hapiness function.
+You are to get coefficients a and b from `reg_model` and predict satisfaction when employee is paid `$200`, `$400`, and `$1200` using `predict_hapiness` function.
 
 
-predict_happiness <- function(x){
-
-# Get coefficients a and b from reg_model
+` predict_happiness <- function(x){ \n
   a = 
   b =
   Result<- a + (b * x) 
   percent<- "%"
   cat(sprintf("The employee should be %s%s satisfied", Result, percent))
-}
+}  `
 
 
 Instead of using `predict_happiness` function, you can also use the built-in `predict` funtion provided by caret package.
