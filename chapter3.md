@@ -252,9 +252,9 @@ success_msg("Good work!")
 In this step, you will:
 
 * Partition the data into `training` and `test` sets.
-* Create a model to predict `wage` based on three input variables - `age`, `education` and `ob class`.
-
-
+* Create a random forest model called `rf_model` to predict `wage` based on three input variables - `age`, `education` and `job class`.The function randomForest() is used to create a random forest model like this:
+    
+    `rf_model <- randomForest(wage ~ age + jobclass + education, data = training, importance = TRUE, ntree=200)`
 
 
 *** =instructions
@@ -263,12 +263,18 @@ In this step, you will:
 - Print out the training and test sets  
 - Check the dimension of both datasets to know more about the data
 - Now plot the training dataset with age on the x-axis, wage on the y-axis and make the colour based on education. What do you notice?
+- Create you own rf_model, but this time grow 500 trees.
+
+#PRINT OUT to check RMSE
+
+print(rf_model)
 *** =hint
 - type ?createDataPartition to know how to use the createDataPartition() function
 - Make p=0.7 and set list=FALSE
 - To print a variable to the console, simply type the name of the variable on a new line.
-- Use `qplot()` for the last instruction. Just as you did in the previous exercise.
+- Use `qplot()` for the fifth instruction. Just as you did in the previous exercise.
 - Do you notice that the plot created usinf training set is similar to the plot done on the whole Wage dataset. This is because the createDataPartition function splits the data evenly into training and test sets.
+- For the last instruction, set `ntree` to 500.
 
 *** =pre_exercise_code
 ```{r}
@@ -277,15 +283,6 @@ library(caret)
 
 *** =sample_code
 ```{r}
-
-
-
-```
-
-*** =solution
-```{r}
-
-
 # Partition the data into training and test datasets
 
 inTrain <- createDataPartition(y= training$wage, p=0.7, list=FALSE)
@@ -307,6 +304,39 @@ dim(test)
 # Observe plot of training set
 qplot(age, wage, data=training, colour = education)
 
+
+# Create your randomForest model
+
+
+```
+
+*** =solution
+```{r}
+# Partition the data into training and test datasets
+
+inTrain <- createDataPartition(y= training$wage, p=0.7, list=FALSE)
+
+training <- Wage[inTrain, ]
+
+test <- Wage[-inTrain, ]
+
+# Print out training and test sets and show the dimensions of each set
+
+training
+
+test
+
+dim(training)
+
+dim(test)
+
+# Observe plot of training set
+qplot(age, wage, data=training, colour = education)
+
+
+# Create your randomForest model
+
+rf_model <- randomForest(wage ~ age + jobclass + education, data = training, importance = TRUE, ntree=500)
 ```
 
 *** =sct
@@ -321,6 +351,9 @@ test_function("dim",
 
 test_function("qplot",
               not_called_msg = "You didn't call `plot()`")
+              
+test_function("randomForest",
+              not_called_msg = "You didn't call `randomForest()`")
               
 
 test_error()
