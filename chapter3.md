@@ -42,7 +42,7 @@ Which of the following argument is used to specify the number of trees to grow?
 - ntree
 
 *** =hint
-- Type `help(randomForest)` to find the documentation for randomForest package.
+- Type `help(randomForest)` in the R console to find the documentation for randomForest package.
 
 *** =pre_exercise_code
 ```{r}
@@ -71,10 +71,11 @@ Now let’s see an example. Using the Wage dataset provided by the `ISLR` packag
 
 *** =instructions
 - Load the required packages -  ISLR, ggplot2, caret, randomForest
-- Know more about the Wage dataset 
-- Your training set should be 60% of the entire dataset 
-- Print out the training and test sets  
-- Check the dimension of both datasets to know more about the data
+- Use `data()` function to load the `Wage` dataset into your workspace
+- Know more about the Wage dataset. Use str() and dim() on the Wage. Can you interpret the results?
+- Call head() and tail() on your dataset to reveal the first and last 6 observations.
+- Finally, call the summary() function to generate a summary of the dataset. What does the printout tell you?
+
 *** =hint
 - Use `library()` for each package in the first instruction. 
 - Make sure you have loaded the caret package into your workspace by typing `library(caret)` 

@@ -4,7 +4,11 @@ description : A General Introduction to Machine Learning
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ef1b76935a
+
+
+
+
+--- type:PlainMultipleChoiceExercise lang:r xp:50 skills:1 key:ef1b76935a
 ## The Buzzword
 
 The term "Machine Learning" has been in town for a while now. It is even being overused by some but to others, it will remain a black box.
