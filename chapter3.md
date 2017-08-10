@@ -1,6 +1,6 @@
 ---
 title       : A Random Forest Prediction
-description : Here, you will learn how to use the random forest algorithm to create a model.
+description : Here, you will learn to use the random forest algorithm to create a model.
 
 
 
@@ -60,7 +60,7 @@ test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:a2a9af68a2
-## Will I Make the Big Money?
+## Will I Make it Big?
 
 Now let’s see an example. Using the Wage dataset provided by the `ISLR` package, you will create a model to predict wage based on three input variables - age, education and job class.
 

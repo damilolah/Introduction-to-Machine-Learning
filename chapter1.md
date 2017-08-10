@@ -17,7 +17,7 @@ This means that machines will be given the ability to make inferences and observ
 
 
 ### `CLASS ACTIVITY:`
-From the definition above, which of the following is not a Machine Learning Task?
+From the above definition, which of the following is not a Machine Learning Task?
 
 *** =instructions
 - Self driving cars
