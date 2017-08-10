@@ -397,7 +397,7 @@ pred_wage<-
 
 # Compare predicted wage to original wage of test dataset.
 
-compare_result <- d
+compare_result <-
   
 # Print out the first few observation of compare_result 
 
@@ -432,7 +432,23 @@ postResample(testing$wage, pred_wage)
 
 *** =sct
 ```{r}
-test_object("check_accuracy")
+              
+test_function("predict",
+              not_called_msg = "You didn't call `predict()`")
+              
+            
+test_object("pred_wage")
+
+              
+test_function("data.frame",
+              not_called_msg = "You didn't call `data.frame()`")
+
+test_object("compare_result")
+
+              
+test_function("postResample",
+              not_called_msg = "You didn't call `postResample()`")
+
 
 
 test_error()
@@ -441,6 +457,8 @@ success_msg("Good work! At this point, you can accept your model and present you
 
 
 ```
+
+
 
 
 
