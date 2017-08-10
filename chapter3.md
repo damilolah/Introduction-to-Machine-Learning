@@ -6,11 +6,13 @@ description : Here, you will learn how to use the random forest algorithm to cre
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:4c2e1e4e93
-## Built 
+## Decision Tree Algorithm
 
-Decision tree is a type of supervised learning algorithm and is mostly used in classification problems. This algorithm involves splitting the population or sample into two or more subpopulation based on most significant splitter or input variables.
+Decision tree is a type of `supervised learning` algorithm and is mostly used in `classification` problems. This algorithm involves splitting the population or sample into two or more subpopulation based on most significant splitter or input variables.
 
-Let’s say we have a sample of 30 students with two input variables Gender (Boy / Girl) and Height (5 to 6 ft). 15 out of these 30 play Basketball in leisure time. Let’s say we want to create a model to predict who will play basketball during leisure period? Basically, we want to separate students who play basketball in their leisure time based on highly significant input variable among all two variables (a.k.a. predictors)
+Suppose we have a sample of `30 students` with two input variables `Gender` (Boy / Girl) and `Height` (5 to 6 ft). 15 out of these 30 play `Basketball` in leisure time. Students in red play basketball and those in blue do not. Let’s say we want to create a model to predict who will play basketball during leisure period? Basically, we want to separate students who play basketball in their leisure time based on highly significant input variable among all two variables (a.k.a. predictors)
+
+
 Decision tree is useful here in that it will segregate the students based on all values of two variable. The variable which creates the best similar sets of students (i.e. sets which are dissimilar to each other). 
 
 ![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/rf.png)
@@ -18,17 +20,21 @@ Decision tree is useful here in that it will segregate the students based on all
 
 In the figure above, you can see that variable Gender is able to identify best subpopulation sets compared to the variable height.
 
-Now let’s see an example. Using the Wage dataset in R provided by the ISLR package, you will create a model to predict wage based on input variables age, education and job class.
+`Random Forest` algorithm is a variant of decision tree algorithm. The algorithm involves constructing a multitude of decision trees at training time and outputting a result that is the `mode class` or `mean prediction` of the individual trees. This makes random forest `very accurate` and popular among data people.
+
+
+Now let’s see an example. Using the Wage dataset provided by the `ISLR` package, you will create a model to predict wage based on three input variables - age, education and job class.
+
 
 
 *** =instructions
-- Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis. Plot function is used like this: `plot(x, y, data=myData)`
+- Load the required packages -  ISLR, ggplot2, caret, randomForest
 - Use createDataPartition() function in R to partition your dataset
 - Your training set should be 60% of the entire dataset 
 - Print out the training and test sets  
 - Check the dimension of both datasets to know more about the data
 *** =hint
-- Use `plot()` for the first instruction. 
+- Use `library()` for each package in the first instruction. 
 - Make sure you have loaded the caret package into your workspace by typing `library(caret)` 
 - type ?createDataPartition to know how to use the createDataPartition() function
 - Make p=0.6 and set list=FALSE
@@ -79,9 +85,12 @@ test <-
 *** =solution
 ```{r}
 
-# Loading the required package
+# Load the required packages
 
+library(ISLR)
+library(ggplot2)
 library(caret)
+library(randomForest)
 
 # Creating the dataset
 earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
