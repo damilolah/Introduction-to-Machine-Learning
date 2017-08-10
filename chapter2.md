@@ -417,18 +417,19 @@ The formula is:
 
 Where:
 
-f = predicted values 
-o = true values 
-The bar above the squared differences means find the mean of the 
+ * f = predicted values 
+ * o = true values 
+The bar above the squared differences means find the mean of the squared difference.
 
 
 *** =instructions
+- You can find the rmse of the test dataset by running the code below in the console:
 
-
+    `sqrt(sum((pred_rating - test$s_rating)^2))`
 
 *** =hint
 
-sqrt(sum((predict(reg_model, test) - test$s_rating)^2))
+
 *** =pre_exercise_code
 ```{r}
 
@@ -436,11 +437,19 @@ sqrt(sum((predict(reg_model, test) - test$s_rating)^2))
 
 *** =sample_code
 ```{r}
+# Check accuracy bu calculating the RMSE 
+
+
 
 ```
 
 *** =solution
 ```{r}
+
+# Check accuracy bu calculating the RMSE 
+
+check_accuracy <- sqrt(sum((pred_rating - test$s_rating)^2))
+
 
 ```
 
