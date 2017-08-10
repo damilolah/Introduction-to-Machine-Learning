@@ -13,8 +13,11 @@ Using two (2) examples, we'll see the processes involved in doing "Machine Learn
 
 
 According to Wikipedia, Arthur Samuel in 1959 defined Machine Learning as the subfield of computer science that gives computers the ability to learn without being explicitly programmed.
+This means that machines will be given the ability to make inferences and observation by learning from data. Machine learning is the therefore the science of teaching the machine to identify trends in data and recognize patterns that cannot easily be detected by humans.
 
-Which of the following is not a Machine Learning Task?
+
+### `CLASS ACTIVITY:`
+From the definition above, which of the following is not a Machine Learning Task?
 
 *** =instructions
 - Self driving cars
@@ -53,7 +56,7 @@ How?
 
 Answer = Machine Learning!
 
-Processes involved in Machine Learning:
+Processes involved in Machine Learning include the following:
 
 - Get data
 - Preprocess (Clean, Prepare, Manipulate Data & Exploratory Data Analysis)
@@ -71,6 +74,9 @@ In the above example, the machine uses a model that takes in an input (a personâ
 
 Testing and evaluating the models you will create comes up in later chapters.
 You will also learn to improve your model.
+
+
+### `CLASS ACTIVITY:`
 
 A good machine learning model depends on which of the following? 
 

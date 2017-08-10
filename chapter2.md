@@ -406,11 +406,29 @@ data.frame(pred_rating, test$s_rating)
 --- type:NormalExercise lang:r xp:100 skills:1 key:a299b37ba8
 ## Check Accuracy
 
+There a number of ways to evaluate your model. For this exercise, you will use the root-mean-square error (RMSE). 
+RMSE is gotten by calculating mean squared errors. This is simply a measures of deviation of predicted points from the original value.
+
+
+The formula is:
+
+  rmse  = ![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/rmse.png)
+
+
+Where:
+
+f = predicted values 
+o = true values 
+The bar above the squared differences means find the mean of the 
+
 
 *** =instructions
 
+
+
 *** =hint
 
+sqrt(sum((predict(reg_model, test) - test$s_rating)^2))
 *** =pre_exercise_code
 ```{r}
 
