@@ -1,6 +1,6 @@
 ---
-title       : Will I Make it Big?
-description : This chapter introduces the decision tree algorithm. You will learn about random forest algorithm - a variant of the decision tree that improves it and performs better in general. Using random forest algorithm, you will create a model to predict a person's wage based on their age, education and type of job.
+title       : How Much Will I Earn?
+description : This chapter introduces the decision tree algorithm. You will learn about random forest algorithm - a variant of the decision tree that improves it and performs better in general. Using random forest algorithm, you will create a model to predict what a person will earn based on their age, education and type of job.
 
 
 
@@ -202,16 +202,21 @@ Activities done in this step also includes detecting the presence of missing (NA
 
 As we saw from the example on satisfaction ratings, predicting continuous variables gives results that are not exactly precise. So for this example, we will present our results in terms of categories. 
 
-We will divide the whole wage column into 20 categories and create another column called wage_range. Each observed wage will therefore fall under one of these 20 categories. A good model will therefore predict the right range of wages a person can earn.
+We will divide the wage column into 20 categories and add another column called wage_range to the Wage dataset. Each observed wage will therefore fall under one of these 20 categories. 
 
-cut(Wage$wage, b = 20)
+* A good model will predict the right range of wages a person can earn.
+
+        wage_range <- cut(Wage$wage, b = 20)
+        Wage$wage_range <- wage_range
 
 *** =instructions
 - Now plot age against wage but this time make the colour based on education. 
 - Remove other variables not necessary for this analysis such as health, health_ins, region, race, year, sex, and maritl.
+- Call head() and tail() on Wage to check that our new column has been added. Observe that each wage falls within the corresponding wage_range.
+
 
 *** =hint
-- Use subset() function to remove these variables
+- Use subset() function to remove these variables as in  `Wage<- subset(Wage, select=- c(logwage, health...`
 
 *** =pre_exercise_code
 ```{r}
@@ -230,6 +235,10 @@ qplot(age, wage, data=Wage, colour = race)
 # Remove unnecessary variables
 
 Wage<- subset(Wage, select=- c(logwage)
+
+# Add wage_range to Wage datasets 
+  wage_range <- cut(Wage$wage, b = 20)
+  Wage$wage_range <- wage_range
 
 ```
 
@@ -271,7 +280,7 @@ In this step, you will:
 * Partition the data into `training` and `test` sets.
 * Create a random forest model called `rf_model` to predict `wage` based on three input variables - `age`, `education` and `job class`.The function randomForest() is used to create a random forest model like this:
     
-    `rf_model <- randomForest(wage ~ age + jobclass + education, data = training, importance = TRUE, ntree=200)`
+    `rf_model <- randomForest(wage_range ~ age + jobclass + education, data = training, importance = TRUE, ntree=200)`
 
 
 *** =instructions
@@ -300,7 +309,7 @@ library(caret)
 ```{r}
 # Partition the data into training and test datasets
 
-inTrain <- createDataPartition(y= training$wage, p=0.7, list=FALSE)
+inTrain <- createDataPartition(y= training$wage_range, p=0.7, list=FALSE)
 
 training <- Wage[inTrain, ]
 
@@ -329,7 +338,7 @@ qplot(age, wage, data=training, colour = education)
 ```{r}
 # Partition the data into training and test datasets
 
-inTrain <- createDataPartition(y= training$wage, p=0.7, list=FALSE)
+inTrain <- createDataPartition(y= training$wage_range, p=0.7, list=FALSE)
 
 training <- Wage[inTrain, ]
 
@@ -351,7 +360,7 @@ qplot(age, wage, data=training, colour = education)
 
 # Create your randomForest model
 
-rf_model <- randomForest(wage ~ age + jobclass + education, data = training, importance = TRUE, ntree=500)
+rf_model <- randomForest(wage_range ~ age + jobclass + education, data = training, importance = TRUE, ntree=500)
 rf_model
 ```
 
@@ -431,11 +440,11 @@ compare_result <-
 
 # Test your `rf_model` by using the predict function.
 
-pred_wage<- predict(rf_model, test)
+pred_wage_range<- predict(rf_model, test)
 
 # Compare predicted wage to original wage of test dataset.
 
-compare_result <- data.frame(testing$wage, pred_wage)
+compare_result <- data.frame(testing$wage_range, pred_wage_range)
   
 # Print out the first few observation of compare_result 
 
@@ -443,7 +452,7 @@ compare_result <- data.frame(testing$wage, pred_wage)
 
 # Check accuracy by calculating the RMSE 
 
-postResample(testing$wage, pred_wage)
+postResample(testing$wage_range, pred_wage_range)
 
 ```
 
@@ -454,7 +463,7 @@ test_function("predict",
               not_called_msg = "You didn't call `predict()`")
               
             
-test_object("pred_wage")
+test_object("pred_wage_range")
 
               
 test_function("data.frame",
@@ -482,3 +491,31 @@ success_msg("Good work! At this point, you can accept your model and present you
 
 
 
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:16fc146c35
+## <<<New Exercise>>>
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
