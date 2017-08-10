@@ -288,11 +288,11 @@ library(caret)
 
 # Partition the data into training and test datasets
 
-inTrain <- createDataPartition(y= emp_data$s_rating, p=0.6, list=FALSE)
+inTrain <- createDataPartition(y= training$wage, p=0.7, list=FALSE)
 
-training <- emp_data[inTrain, ]
+training <- Wage[inTrain, ]
 
-test <- emp_data[-inTrain, ]
+test <- Wage[-inTrain, ]
 
 # Print out training and test sets and show the dimensions of each set
 
@@ -304,14 +304,24 @@ dim(training)
 
 dim(test)
 
+# Observe plot of training set
+qplot(age, wage, data=training, colour = education)
+
 ```
 
 *** =sct
 ```{r}
 
-test_object("predict_happiness")
-test_object("pred_rating")
+test_object("training")
+test_object("test")
 
+
+test_function("dim",
+              not_called_msg = "You didn't call `dim()`")
+
+test_function("qplot",
+              not_called_msg = "You didn't call `plot()`")
+              
 
 test_error()
 
