@@ -184,17 +184,27 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:372a383227
 ## Data Preprocessing
 
-Data preprocesing involves transforming data into a basic form that makes it easy to work with. One characteristics of a tidy dataset is that: one observation per row and one variable per column.
-Activities done in this step also includes detecting the presence of missing (NA) values, noise and outliers, or duplicate data
+Data preprocesing involves transforming data into a basic form that makes it easy to work with. One characteristics of a tidy dataset is that: one observation per row and one variable per column. As you can tell from the previous exercise that the Wage dataset is tidy.
+
+
+Activities done in this step also includes detecting the presence of missing (NA) values, noise and outliers, or duplicate data.
+
+* Check for missing values
+        sum(is.na(Wage))
 
 * Do some exploratory data analysis
    
         qplot(age, wage, data=Wage, colour = race)
 
-
 * We don’t need the variable “logwage” for our analysis, so we remove it.
     
         Wage<- subset(Wage, select=- c(logwage))
+
+As we saw from the example on satisfaction ratings, predicting continuous variables gives results that are not exactly precise. So for this example, we will present our results in terms of categories. 
+
+We will divide the whole wage column into 20 categories and create another column called wage_range. Each observed wage will therefore fall under one of these 20 categories. A good model will therefore predict the right range of wages a person can earn.
+
+cut(Wage$wage, b = 20)
 
 *** =instructions
 - Now plot age against wage but this time make the colour based on education. 
@@ -210,6 +220,9 @@ Activities done in this step also includes detecting the presence of missing (NA
 
 *** =sample_code
 ```{r}
+
+# Check for missing values
+
 # Some exploratory data analysis
 
 qplot(age, wage, data=Wage, colour = race)
@@ -222,6 +235,10 @@ Wage<- subset(Wage, select=- c(logwage)
 
 *** =solution
 ```{r}
+
+# Check for missing values
+sum(is.na(Wage))
+
 # Some exploratory data analysis
 
 #qplot(age, wage, data=Wage, colour = race)
