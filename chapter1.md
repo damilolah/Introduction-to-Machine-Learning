@@ -1,6 +1,6 @@
 ---
 title       : Computer Wins!
-description : Insert the chapter description here
+description : A General Introduction to Machine Learning
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 

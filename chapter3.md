@@ -1,6 +1,8 @@
 ---
-title       :  Does Money Buy Happiness?
-description : You will learn to create a model using Linear Regression Modelling
+title       : A Random Forest Prediction
+description : Here, you will learn how to use the random forest algorithm to create a model.
+
+
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:4c2e1e4e93
