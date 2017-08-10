@@ -258,18 +258,18 @@ In this step, you will:
 
 
 *** =instructions
-- Use createDataPartition() function in R to partition your dataset
+- Use createDataPartition() function to partition your dataset
 - Your training set should be 70% of the entire dataset 
 - Print out the training and test sets  
 - Check the dimension of both datasets to know more about the data
-- Now plot age against wage and make the colour based on education. What do you notice?
+- Now plot the training dataset with age on the x-axis, wage on the y-axis and make the colour based on education. What do you notice?
 *** =hint
-
-- Make sure you have loaded the caret package into your workspace by typing `library(caret)` 
 - type ?createDataPartition to know how to use the createDataPartition() function
-- Make p=0.6 and set list=FALSE
-- To print a variable to the console, simply type the name of the variable on a new
-- - Use `qplot()` for the last instruction. Just as you did in the previous exercise.
+- Make p=0.7 and set list=FALSE
+- To print a variable to the console, simply type the name of the variable on a new line.
+- Use `qplot()` for the last instruction. Just as you did in the previous exercise.
+- Do you notice that the plot created usinf training set is similar to the plot done on the whole Wage dataset. This is because the createDataPartition function splits the data evenly into training and test sets.
+
 *** =pre_exercise_code
 ```{r}
 library(caret)
