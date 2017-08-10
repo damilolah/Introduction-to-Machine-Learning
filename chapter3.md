@@ -366,29 +366,22 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:a299b37ba8
 ## Check Accuracy
 
-There a number of ways to evaluate your model. For this exercise, you will use the root-mean-square error (RMSE). 
-RMSE is gotten by calculating mean squared errors. This is simply a measures of deviation of predicted points from the original value.
+Test your `rf_model` by using the predict function like this:
 
+`pred_wage<- predict(model_name, test_data)`
 
-The formula is:
+To check accuracy of your model, calculate RMSE using postResample() function like this:
 
-  rmse  = ![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/rmse.png)
-
-
-Where:
-
- * f = predicted values 
- * o = true values 
-The bar above the squared differences means find the mean of the squared difference.
-
+`postResample(actual_wage, pred_wage)`
 
 *** =instructions
-- You can find the rmse of the test dataset by running the code below in the console:
-
-    `sqrt(sum((pred_rating - test$s_rating)^2))`
+- Now, test your `rf_model` by using the `predict()` function. Store the predicted wages in a variable called `pred_wage`.
+- Compare predicted wage to original wage of test dataset by creating a table called `compare_result`with data.frame() function having two columns testing$wage and pred_wage
+- Print out the first few observation of `compare_result` 
+   
 
 *** =hint
-
+- Use head() for the third instruction.
 
 *** =pre_exercise_code
 ```{r}
@@ -397,7 +390,20 @@ The bar above the squared differences means find the mean of the squared differe
 
 *** =sample_code
 ```{r}
-# Check accuracy bu calculating the RMSE 
+
+# Test your `rf_model` by using the predict function.
+
+pred_wage<-
+
+# Compare predicted wage to original wage of test dataset.
+
+compare_result <- d
+  
+# Print out the first few observation of compare_result 
+
+
+
+# Check accuracy by calculating the RMSE 
 
 
 
@@ -406,10 +412,21 @@ The bar above the squared differences means find the mean of the squared differe
 *** =solution
 ```{r}
 
-# Check accuracy bu calculating the RMSE 
+# Test your `rf_model` by using the predict function.
 
-check_accuracy <- sqrt(sum((pred_rating - test$s_rating)^2))
+pred_wage<- predict(rf_model, test)
 
+# Compare predicted wage to original wage of test dataset.
+
+compare_result <- data.frame(testing$wage, pred_wage)
+  
+# Print out the first few observation of compare_result 
+
+ head(compare_result) 
+
+# Check accuracy by calculating the RMSE 
+
+postResample(testing$wage, pred_wage)
 
 ```
 

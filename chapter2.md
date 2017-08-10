@@ -323,7 +323,7 @@ predict_happiness <- function(x){
 - Insert $200, $400 and then $1200
 - Instead of using `predict_happiness` function, you can also use the built-in `predict` funtion provided by caret package.The predict function takes in the model and the test dataset like this
 `predict(red_model, test)`. Put all your predicted values in a variable called `pred_rating` as in `pred_rating <- predicted(reg_model, test)`
-- Compare pred_rating with the s_rating column in the test data.
+- Compare pred_rating with the s_rating column in the test data. What do you observe? Are the predicted ratings close to the actual?
 
 *** =hint
 - Get coefficents `a` and `b` from  `reg_model` using the `coef()` function as in previous exercises.
