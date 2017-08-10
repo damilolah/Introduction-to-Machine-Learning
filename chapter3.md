@@ -8,7 +8,7 @@ description : Here, you will learn to use the random forest algorithm to create 
 --- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:4c2e1e4e93
 ## Decision Tree Algorithm
 
-Decision tree is a type of `supervised learning` algorithm and is mostly used in `classification` problems. This algorithm involves splitting the population or sample into two or more subpopulation based on most significant splitter or input variables.
+Decision tree is a type of `supervised learning` algorithm and is mostly used in `classification` problems. This algorithm involves splitting the population or sample into two or more subpopulation based on most significant splitter in input variables.
 
 Suppose we have a sample of `30 students` with two input variables `Gender` (Boy / Girl) and `Height` (5 to 6 ft). 15 out of these 30 play `Basketball` in leisure time. Students in red play basketball and those in blue do not. Let’s say we want to create a model to predict who will play basketball during leisure period? Basically, we want to separate students who play basketball in their leisure time based on highly significant input variable among all two variables (a.k.a. predictors)
 
@@ -30,16 +30,20 @@ In the figure above, you can see that variable Gender is able to identify best s
 
 
 ### `CLASS ACTIVITY:`
-From the definition above, which of the following is not a Machine Learning Task?
+Use `help(randomForest)` to find the documentation for randomForest package. 
+Study the manual and answer the question below:
+
+Which of the following argument is used to specify the number of trees to grow?
 
 *** =instructions
 - Self driving cars
 - A program that prints the next 20 leap years
 - A program that categorizes emails into spam and non-spam
-- Predicting galaxies
+- ntree
 
 *** =hint
-Take a look at the options. Which task requires explicitly programming the computer?
+- Make sure you have loaded the library into your workspace by typing `library(randomForest)` 
+- Type `help(randomForest)` to find the documentation for randomForest package.
 
 *** =pre_exercise_code
 ```{r}
