@@ -16,7 +16,7 @@ Decision tree is useful here in that it will segregate the students based on all
 
 
 
-
+ ![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/tree.png)
 
 
 
