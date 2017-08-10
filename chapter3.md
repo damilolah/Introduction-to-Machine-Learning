@@ -252,68 +252,31 @@ success_msg("Good work!")
 In this step, you will:
 
 * Partition the data into `training` and `test` sets.
-* Create a model to predict wage based on three input variables - age, education and job class.
+* Create a model to predict `wage` based on three input variables - `age`, `education` and `ob class`.
 
 
-You are to get coefficients `a` and `b` from `reg_model` and predict satisfaction when employee is paid `$200`, `$400`, and `$1200` using `predict_hapiness` function.
 
-predict_happiness <- function(x){
-  
-  a = 
-  
-  b =
-  
-  Result<- a + (b * x) 
- 
-  percent<- "%"
-  
-  cat(sprintf("The employee should be %s%s satisfied", Result, percent))
-  
-  }
 
 *** =instructions
-- Complete the predict_happiness function 
-- Insert $200, $400 and then $1200
-- Instead of using `predict_happiness` function, you can also use the built-in `predict` funtion provided by caret package.The predict function takes in the model and the test dataset like this
-`predict(red_model, test)`. Put all your predicted values in a variable called `pred_rating` as in `pred_rating <- predicted(reg_model, test)`
-- Compare pred_rating with the s_rating column in the test data.
-
+- Use createDataPartition() function in R to partition your dataset
+- Your training set should be 70% of the entire dataset 
+- Print out the training and test sets  
+- Check the dimension of both datasets to know more about the data
+- Now plot age against wage and make the colour based on education. What do you notice?
 *** =hint
-- Get coefficents `a` and `b` from  `reg_model` using the `coef()` function as in previous exercises.
-- Use the data.frame() function to create a table with two variables pred_rating and test$s_rating.
 
+- Make sure you have loaded the caret package into your workspace by typing `library(caret)` 
+- type ?createDataPartition to know how to use the createDataPartition() function
+- Make p=0.6 and set list=FALSE
+- To print a variable to the console, simply type the name of the variable on a new
+- - Use `qplot()` for the last instruction. Just as you did in the previous exercise.
 *** =pre_exercise_code
 ```{r}
-
+library(caret)
 ```
 
 *** =sample_code
 ```{r}
-
-# Create predict_happiness() function
-# Get coefficients a and b from reg_model
-
-predict_happiness <- function(x){
-
-  a = 
-  b = 
-  Result<- a + (b * x) 
-  percent<- "%"
-  cat(sprintf("The employee should be %s%s satisfied", Result, percent))
-}
-
-# Predict satisfaction when employee is paid $200, $400, and $1200 
-
-predict_happiness(200)
-
-
-
-
-# pred_rating - Predicted satisfaction rating for test set
-
-pred_rating <- 
-
-# Compare test set s_rating with predicted s_rating for the test set
 
 
 
@@ -322,33 +285,24 @@ pred_rating <-
 *** =solution
 ```{r}
 
-# Create predict_happiness() function
-# Get coefficients a and b from reg_model
 
-predict_happiness <- function(x){
+# Partition the data into training and test datasets
 
-  a = coef(reg_model)[1]
-  b = coef(reg_model)[2]
-  Result<- a + (b * x) 
-  percent<- "%"
-  cat(sprintf("The employee should be %s%s satisfied", Result, percent))
-}
+inTrain <- createDataPartition(y= emp_data$s_rating, p=0.6, list=FALSE)
 
-# Predict satisfaction when employee is paid $200, $400, and $1200 
+training <- emp_data[inTrain, ]
 
-predict_happiness(200)
+test <- emp_data[-inTrain, ]
 
+# Print out training and test sets and show the dimensions of each set
 
+training
 
+test
 
+dim(training)
 
-# pred_rating - Predicted satisfaction rating for test set
-
-pred_rating <- predict(reg_model, test)
-
-# Compare test set s_rating with predicted s_rating for the test set
-data.frame(pred_rating, test$s_rating)
-
+dim(test)
 
 ```
 
