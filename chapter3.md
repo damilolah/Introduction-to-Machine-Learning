@@ -493,12 +493,42 @@ success_msg("Good work! At this point, you can accept your model and present you
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:16fc146c35
-## <<<New Exercise>>>
+## Improving Your Model
+
+
+Your model depends on the quality of your dataset and the type of Machine Learning algorithm used. Therefore, to improve the accuracy of your model, you should:
+
+* Check what attributes affect our model the most and what variables to leave out in future analysis
+* Find out what other attributes affect a person's wage; we can use as predictors in future analysis
+* Tweak the algorithm (e.g. change the ntree value)
+* Use a different machine learning algorithm
+
+If any of these reduces the RMSE significantly, you have succeeded in improving your model!
 
 
 *** =instructions
+- Call importance() function on the rf_model model  to check how the attributes used as predictors affect our model
+- Call varImpPlot() function on the model to visually check variable importance
+- What do you notice?
+
+
+### `Note that:`
+
+`Mean Decrease Accuracy (%IncMSE)` - This shows how much our model accuracy decreases if we leave out that variable.
+
+`Mean Decrease Gini (IncNodePurity)` - This is a measure of variable importance based on the Gini impurity index used for the calculating the splits in trees.
+
+The higher the value of mean decrease accuracy or mean decrease gini score, the higher the importance of the variable to our model.
+
+We can see that the predictor `education` plays an important role in the accuracy of our model. We might include other variables from the wage dataset into our analyses and compare our model’s RMSE when this variables are present versus when absent.
+
+This brings us to the end of this course. Keep finding ways to create better Machine Learning models.
+
+### `Good luck in your future endeavor!`
 
 *** =hint
+
+- Type importance(rf_model) and varImpPlot(rf_model) 
 
 *** =pre_exercise_code
 ```{r}
@@ -507,12 +537,18 @@ success_msg("Good work! At this point, you can accept your model and present you
 
 *** =sample_code
 ```{r}
+# Check what attributes affect our model the most 
 
 ```
 
 *** =solution
 ```{r}
 
+# Check what attributes affect our model the most 
+
+importance(rf_model) 
+
+varImpPlot(rf_model)
 ```
 
 *** =sct
