@@ -9,7 +9,10 @@ attachments :
 
 The term "Machine Learning" has been in town for a while now. It is even being overused by some but to others, it will remain a black box.
 This course will educate you on the idea of Machine Learning, from getting the data to improving the accuracy of the models you will create. 
-Using two (2) examples, we'll see the processes involved in doing "Machine Learning". You should get the hang of this black box after this course.
+Using some examples, we'll see the processes involved in doing "Machine Learning". 
+
+This course is for people that want to dive right in and get their hands dirty.
+You should get the hang of this black box after this course.
 
 
 According to Wikipedia, Arthur Samuel in 1959 defined Machine Learning as the subfield of computer science that gives computers the ability to learn without being explicitly programmed.
