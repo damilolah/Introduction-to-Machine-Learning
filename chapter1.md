@@ -5,9 +5,6 @@ attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 
-
-
-
 --- type:PlainMultipleChoiceExercise lang:r xp:50 skills:1 key:ef1b76935a
 ## The Buzzword
 
@@ -52,7 +49,7 @@ test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 
---- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:c57adfc430
+--- type:PlainMultipleChoiceExercise lang:r xp:100 skills:1 key:c57adfc430
 ## A Model - The Secret Weapon
 
 
