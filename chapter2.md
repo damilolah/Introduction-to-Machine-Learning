@@ -331,7 +331,8 @@ predict_happiness <- function(x){
 
 *** =pre_exercise_code
 ```{r}
-
+# load(url(""))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/ml1.RData"))
 ```
 
 *** =sample_code
@@ -441,12 +442,12 @@ The bar above the squared differences means find the mean of the squared differe
 
 *** =pre_exercise_code
 ```{r}
-
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/ml2.RData"))
 ```
 
 *** =sample_code
 ```{r}
-# Check accuracy bu calculating the RMSE 
+# Check accuracy by calculating the RMSE 
 
 
 
@@ -455,7 +456,7 @@ The bar above the squared differences means find the mean of the squared differe
 *** =solution
 ```{r}
 
-# Check accuracy bu calculating the RMSE 
+# Check accuracy by calculating the RMSE 
 
 check_accuracy <- sqrt(sum((pred_rating - test$s_rating)^2))
 
