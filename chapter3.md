@@ -5,7 +5,7 @@ description : Here, you will learn how to use the random forest algorithm to cre
 
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:4c2e1e4e93
+--- type:MultipleChoiceExercise lang:r xp:100 skills:1 key:4c2e1e4e93
 ## Decision Tree Algorithm
 
 Decision tree is a type of `supervised learning` algorithm and is mostly used in `classification` problems. This algorithm involves splitting the population or sample into two or more subpopulation based on most significant splitter or input variables.
@@ -15,13 +15,52 @@ Suppose we have a sample of `30 students` with two input variables `Gender` (Boy
 
 Decision tree is useful here in that it will segregate the students based on all values of two variable. The variable which creates the best similar sets of students (i.e. sets which are dissimilar to each other). 
 
+
+
 ![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/rf.png)
+
+
 
 
 In the figure above, you can see that variable Gender is able to identify best subpopulation sets compared to the variable height.
 
+
+
 `Random Forest` algorithm is a variant of decision tree algorithm. The algorithm involves constructing a multitude of decision trees at training time and outputting a result that is the `mode class` or `mean prediction` of the individual trees. This makes random forest `very accurate` and popular among data people.
 
+
+### `CLASS ACTIVITY:`
+From the definition above, which of the following is not a Machine Learning Task?
+
+*** =instructions
+- Self driving cars
+- A program that prints the next 20 leap years
+- A program that categorizes emails into spam and non-spam
+- Predicting galaxies
+
+*** =hint
+Take a look at the options. Which task requires explicitly programming the computer?
+
+*** =pre_exercise_code
+```{r}
+# None
+
+
+```
+
+*** =sct
+```{r}
+# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+
+msg_bad <- "That is not correct!"
+msg_success <- "Exactly! Even I can calculate the next 50 leap years and I'm only human."
+test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
+
+```
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:a2a9af68a2
+## Will I Make the Big Money?
 
 Now let’s see an example. Using the Wage dataset provided by the `ISLR` package, you will create a model to predict wage based on three input variables - age, education and job class.
 
@@ -29,7 +68,7 @@ Now let’s see an example. Using the Wage dataset provided by the `ISLR` packag
 
 *** =instructions
 - Load the required packages -  ISLR, ggplot2, caret, randomForest
-- Use createDataPartition() function in R to partition your dataset
+- Know more about the Wage dataset 
 - Your training set should be 60% of the entire dataset 
 - Print out the training and test sets  
 - Check the dimension of both datasets to know more about the data
@@ -127,148 +166,6 @@ dim(training)
 
 dim(test)
 
-
-```
-
-*** =sct
-```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
-
-
-test_function("plot",
-              not_called_msg = "You didn't call `plot()`")
-
-#test_object("inTrain")
-test_object("training")
-test_object("test")
-
-
-test_function("dim",
-              not_called_msg = "You didn't call `dim()`")
-
-
-
-test_error()
-
-success_msg("Good work!")
-```
-
-
---- type:NormalExercise lang:r xp:100 skills:1 key:a2a9af68a2
-## Create Model
-
-The `lm()` function in R is an implementation of the Linear Regression algorithm. 
-
-You will create a linear model called `reg_model` by plugging in the training set into the `lm()` function.
-
-This model is simply a line. Regression modelling is used to find equations(lines) that fit data.
-
-The equation is of the form:
-
-y = a + bx + ei
-
-y is what we want to predict and x includes all the predictors required to form the model above.
-
-a and b are coefficients determined by the `lm()` function we’ll use shortly. `ei` stands for errors as a result of the factors we did not consider. 
-The best model is one that minimizes ei the most. 
-
-Regression model is easy to implement but it often produces low performance models. This method is useful when the variable involved can be modelled in a linear way.
-
-For example, increase in age leads to increase in weight, or increase in age leads to decrease in the number of hairs on head. This cannot be used in showing increase in library visitor per day of the week. This is usually non-linear.
-
-`lm()` function is used like this: Suppose `myData` is the name of a dataset and I want to predict `class` an attribute in the dataset `myData` using `sex` (another attribute in myData) as my predictor 
-
-reg_model <- lm(class, sex, data=myData)
-We can get a and b from reg_model using the coef function:
-
-a <- coef(reg_model)[1]
-
-b <- coef(reg_model)[2]
-
-*** =instructions
-- Create a linear model called `reg_model` on the training dataset
-- Plot the `training` set with earnings on the x-axis and s_rating on the y-axis
-- Draw a regression line on the plot above that represents the model reg_model 
-- Print out the coefficients a and b 
-
-*** =hint
-- Type `?lm` to learn how to use the lm() function
-- Use `abline()` function to fit a line to the plot  
-- type ?coef to know how to use the coef() function
-
-*** =pre_exercise_code
-```{r}
-# You can also prepare your dataset in a specific way in the pre exercise code
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/ml.RData"))
-
-
-# Clean up the environment
-
-```
-
-*** =sample_code
-```{r}
-
-# Create a linear model called reg_model
-
-reg_model <- 
-
-
-# Know more about your model
-
-summary(reg_model)
-
-# Plot the training set
-
-
-
-# Draw a regression line that represents the model reg_model
-
-
-
-# Print out coefficient 'a'
-
-
-
-# Print out coefficient 'b'
-
-
-
-
-
-```
-
-*** =solution
-```{r}
-
-# Create a linear model called reg_model
-
-reg_model <- lm(s_rating ~ earnings, data=training)
-
-# Know more about your model
-
-summary(reg_model)
-
-# Plot the training set
-par(cex=.8)
-plot(training$earnings, training$s_rating, col = s_rating, main="Regression Modelling")
-
-# Draw a regression line that represents the model reg_model
-abline(reg_model)
-
-
-
-# Print out coefficient 'a'
-
-a <- coef(reg_model)[1]
-
-# Print out coefficient 'b'
-
-b <- coef(reg_model)[2]
-
-a
-
-b
 
 ```
 
@@ -468,3 +365,9 @@ success_msg("Good work! At this point, you can accept your model and present you
 
 
 ```
+
+
+
+
+
+
