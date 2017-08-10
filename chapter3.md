@@ -220,7 +220,7 @@ We will divide the wage column into 20 categories and add another column called 
 
 *** =pre_exercise_code
 ```{r}
-
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/ml3.RData"))
 ```
 
 *** =sample_code
@@ -256,6 +256,9 @@ qplot(age, wage, data=Wage, colour = education)
 # Remove unnecessary variables
 # Wage<- subset(Wage, select=- c(logwage))  remove this line after creating pre-exercise code
 Wage<- subset(Wage, select=- c(health, health_ins, region, race, year, sex, maritl))
+# Add wage_range to Wage datasets 
+  wage_range <- cut(Wage$wage, b = 15)
+  Wage$wage_range <- wage_range
 
 ```
 
@@ -303,13 +306,15 @@ print(rf_model)
 *** =pre_exercise_code
 ```{r}
 library(caret)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/ml4.RData"))
+
 ```
 
 *** =sample_code
 ```{r}
 # Partition the data into training and test datasets
 
-inTrain <- createDataPartition(y= training$wage_range, p=0.7, list=FALSE)
+inTrain <- createDataPartition(y= Wage$wage_range, p=0.7, list=FALSE)
 
 training <- Wage[inTrain, ]
 
@@ -338,7 +343,7 @@ qplot(age, wage, data=training, colour = education)
 ```{r}
 # Partition the data into training and test datasets
 
-inTrain <- createDataPartition(y= training$wage_range, p=0.7, list=FALSE)
+inTrain <- createDataPartition(y= Wage$wage_range, p=0.7, list=FALSE)
 
 training <- Wage[inTrain, ]
 
@@ -411,7 +416,7 @@ To check accuracy of your model, calculate RMSE using postResample() function li
 
 *** =pre_exercise_code
 ```{r}
-
+load(url(""))
 ```
 
 *** =sample_code
