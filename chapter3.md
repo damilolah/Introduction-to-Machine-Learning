@@ -1,7 +1,6 @@
 ---
-title       : A Random Forest Prediction
-description : Here, you will learn to use the random forest algorithm to create a model.
-
+title       : Will I Make it Big?
+description : This chapter introduces the decision tree algorithm. You will learn about random forest algorithm - a variant of the decision tree that improves it and performs better in general. Using random forest algorithm, you will create a model to predict a person's wage based on their age, education and type of job.
 
 
 
@@ -17,7 +16,7 @@ Decision tree is useful here in that it will segregate the students based on all
 
 
 
-![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/rf.png)
+![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/tree.png)
 
 
 
@@ -63,26 +62,24 @@ test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success))
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:a2a9af68a2
-## Will I Make it Big?
+## About the Data
 
-Now let’s see an example. Using the Wage dataset provided by the `ISLR` package, you will create a model to predict wage based on three input variables - age, education and job class.
+The first step in Machine Learning is getting your data. This step involves finding the raw data in whatever format they are. They may be structured, unstructured, semi structured, whether flat files, tables, JSON format or in a database, video, audio, text etc. 
 
-
+Now let’s see an example using the Wage dataset provided by the `ISLR` package. 
 
 *** =instructions
 - Load the required packages -  ISLR, ggplot2, caret, randomForest
-- Use `data()` function to load the `Wage` dataset into your workspace
-- Know more about the Wage dataset. Use str() and dim() on the Wage. Can you interpret the results?
+- Use `data(Wage)` function to get the `Wage` dataset into your workspace
+- Know more about the Wage dataset. Use str() and dim() on the Wage dataset. Can you interpret the results?
 - Call head() and tail() on your dataset to reveal the first and last 6 observations.
 - Finally, call the summary() function to generate a summary of the dataset. What does the printout tell you?
 
 *** =hint
-- Use `library()` for each package in the first instruction. 
-- Make sure you have loaded the caret package into your workspace by typing `library(caret)` 
-- type ?createDataPartition to know how to use the createDataPartition() function
-- Make p=0.6 and set list=FALSE
-- To print a variable to the console, simply type the name of the variable on a new line.
-- Use the `dim()` function on training and test set for the fourth instruction
+- Use library() function for the first instruction.
+- The str() function gives you an overview of the different variables of the data.
+- The dim() function tells you the number of observations and variables respectively.
+- The summary() function returns several measures for each variable. Such as the maximum observed value, the mean and many more!
 
 *** =pre_exercise_code
 ```{r}
@@ -94,34 +91,27 @@ Now let’s see an example. Using the Wage dataset provided by the `ISLR` packag
 
 *** =sample_code
 ```{r}
-# Loading the required package
 
-library(caret)
-
-# Creating the dataset
-earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
-
-s_rating<- c(50, 60, 80, 75, 50, 70, 75, 60, 50, 65, 70, 71,80, 82, 85, 80, 88, 90, 90, 60)
-
-emp_data  <- data.frame(earnings, s_rating)
-
-emp_data 
-
-dim(emp_data)
-
-# Some exploratory data analyses - plot emp_data
+# Load the required packages
 
 
 
-# Partition the data into training and test datasets
 
-inTrain <- 
+# Get your dataset
 
-training <- emp_data[inTrain,]
 
-test <- 
 
-# Print out training and test sets and show the dimensions of each set
+#Know more about the Wage dataset.
+
+
+
+# Reveal first and last few observations
+
+
+
+# Summary of the dataset
+
+
 
 ```
 
@@ -135,41 +125,23 @@ library(ggplot2)
 library(caret)
 library(randomForest)
 
-# Creating the dataset
-earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
+# Get your dataset
 
-s_rating<- c(50, 60, 80, 75, 50, 70, 75, 60, 50, 65, 70, 71,80, 82, 85, 80, 88, 90, 90, 60)
+data(Wage)
 
-emp_data  <- data.frame(earnings, s_rating)
+#Know more about the Wage dataset.
 
-emp_data 
+str(Wage)
+dim(Wage)
 
-dim(emp_data)
+# Reveal first and last few observations
 
+head(Wage)
+tail(Wage)
 
-# Some exploratory data analyses 
-par(cex=.8)
-plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
+# Summary of the dataset
 
-
-# Partition the data into training and test datasets
-
-inTrain <- createDataPartition(y= emp_data$s_rating, p=0.6, list=FALSE)
-
-training <- emp_data[inTrain, ]
-
-test <- emp_data[-inTrain, ]
-
-# Print out training and test sets and show the dimensions of each set
-
-training
-
-test
-
-dim(training)
-
-dim(test)
-
+summary(Wage)
 
 ```
 
@@ -177,15 +149,27 @@ dim(test)
 ```{r}
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
-test_object("reg_model")
 
 
+test_function("data",
+              not_called_msg = "You didn't call `data()`")
 
-test_function("abline",
-              not_called_msg = "You didn't call `abline()`")
 
-test_object("a")
-test_object("b")
+test_function("str",
+              not_called_msg = "You didn't call `str()`")
+              
+test_function("dim",
+              not_called_msg = "You didn't call `dim()`")
+              
+test_function("head",
+              not_called_msg = "You didn't call `head()`")
+              
+test_function("tail",
+              not_called_msg = "You didn't call `tail()`")
+              
+                            
+test_function("summary",
+              not_called_msg = "You didn't call `summary()`")
 
 test_error()
 
@@ -193,9 +177,42 @@ success_msg("Good work!")
 ```
 
 
---- type:NormalExercise lang:r xp:100 skills:1 key:e98de586cb
-## Test Model
 
+
+
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:372a383227
+## Data Preprocessing
+
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
+--- type:NormalExercise lang:r xp:100 skills:1 key:e98de586cb
+## Forest of Trees
+
+
+you will create a model to predict wage based on three input variables - age, education and job class.
 Here, you will create a function called `predict_happiness` to test your model. 
 
 You are to get coefficients `a` and `b` from `reg_model` and predict satisfaction when employee is paid `$200`, `$400`, and `$1200` using `predict_hapiness` function.
