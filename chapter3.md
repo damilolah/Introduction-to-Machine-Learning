@@ -36,18 +36,17 @@ Study the manual and answer the question below:
 Which of the following argument is used to specify the number of trees to grow?
 
 *** =instructions
-- Self driving cars
-- A program that prints the next 20 leap years
-- A program that categorizes emails into spam and non-spam
+- mtry
+- nodesize
+- forest
 - ntree
 
 *** =hint
-- Make sure you have loaded the library into your workspace by typing `library(randomForest)` 
 - Type `help(randomForest)` to find the documentation for randomForest package.
 
 *** =pre_exercise_code
 ```{r}
-# None
+library(randomForest)
 
 
 ```
@@ -57,8 +56,8 @@ Which of the following argument is used to specify the number of trees to grow?
 # SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
 
 msg_bad <- "That is not correct!"
-msg_success <- "Exactly! Even I can calculate the next 50 leap years and I'm only human."
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
+msg_success <- "Exactly!"
+test_mc(correct = 4, feedback_msgs = c(msg_bad, msg_bad, msg_bad, msg_success))
 
 ```
 
