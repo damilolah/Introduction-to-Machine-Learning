@@ -13,7 +13,7 @@ Decision tree is a type of supervised learning algorithm and is mostly used in c
 Let’s say we have a sample of 30 students with two input variables Gender (Boy / Girl) and Height (5 to 6 ft). 15 out of these 30 play Basketball in leisure time. Let’s say we want to create a model to predict who will play basketball during leisure period? Basically, we want to separate students who play basketball in their leisure time based on highly significant input variable among all two variables (a.k.a. predictors)
 Decision tree is useful here in that it will segregate the students based on all values of two variable. The variable which creates the best similar sets of students (i.e. sets which are dissimilar to each other). 
 
-![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/random_forests.png)
+![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/rf.png)
 
 
 In the figure above, you can see that variable Gender is able to identify best subpopulation sets compared to the variable height.
