@@ -16,7 +16,7 @@ Decision tree is useful here in that it will segregate the students based on all
 
 
 
- ![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/rfTree.png)
+ ![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/dtree.png)
 
 
 
@@ -184,10 +184,24 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1 key:372a383227
 ## Data Preprocessing
 
+Data preprocesing involves transforming data into a basic form that makes it easy to work with. One characteristics of a tidy dataset is that: one observation per row and one variable per column.
+Activities done in this step also includes detecting the presence of missing (NA) values, noise and outliers, or duplicate data
+
+* Do some exploratory data analysis
+   
+        qplot(age, wage, data=Wage, colour = race)
+
+
+* We don’t need the variable “logwage” for our analysis, so we remove it.
+    
+        Wage<- subset(Wage, select=- c(logwage))
 
 *** =instructions
+- Now plot age against wage but this time make the colour based on education. 
+- Remove other variables not necessary for this analysis such as health, health_ins, region, race, year, sex, and maritl.
 
 *** =hint
+- Use subset() function to remove these variables
 
 *** =pre_exercise_code
 ```{r}
@@ -196,24 +210,50 @@ success_msg("Good work!")
 
 *** =sample_code
 ```{r}
+# Some exploratory data analysis
+
+qplot(age, wage, data=Wage, colour = race)
+
+# Remove unnecessary variables
+
+Wage<- subset(Wage, select=- c(logwage)
 
 ```
 
 *** =solution
 ```{r}
+# Some exploratory data analysis
+
+#qplot(age, wage, data=Wage, colour = race)
+qplot(age, wage, data=Wage, colour = education)
+
+# Remove unnecessary variables
+# Wage<- subset(Wage, select=- c(logwage))  remove this line after creating pre-exercise code
+Wage<- subset(Wage, select=- c(health, health_ins, region, race, year, sex, maritl))
 
 ```
 
 *** =sct
 ```{r}
 
+test_function("qplot",
+              not_called_msg = "You didn't call `qplot()`")
+test_object("Wage")
+
+
+test_error()
+
+success_msg("Good work!")
 ```
 --- type:NormalExercise lang:r xp:100 skills:1 key:e98de586cb
 ## Forest of Trees
 
 
-you will create a model to predict wage based on three input variables - age, education and job class.
-Here, you will create a function called `predict_happiness` to test your model. 
+In this step, you will:
+
+* Partition the data into `training` and `test` sets.
+* Create a model to predict wage based on three input variables - age, education and job class.
+
 
 You are to get coefficients `a` and `b` from `reg_model` and predict satisfaction when employee is paid `$200`, `$400`, and `$1200` using `predict_hapiness` function.
 
