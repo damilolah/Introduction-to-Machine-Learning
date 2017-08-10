@@ -6,34 +6,19 @@ description : Here, you will learn how to use the random forest algorithm to cre
 
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:4c2e1e4e93
-## Knowing Your Data
+## Built 
 
-You will create a dataset called `emp_data` having two attributes - earnings and s_rating and 20 observations
+Decision tree is a type of supervised learning algorithm and is mostly used in classification problems. This algorithm involves splitting the population or sample into two or more subpopulation based on most significant splitter or input variables.
 
-`emp_data` = Employee dataset
+Let’s say we have a sample of 30 students with two input variables Gender (Boy / Girl) and Height (5 to 6 ft). 15 out of these 30 play Basketball in leisure time. Let’s say we want to create a model to predict who will play basketball during leisure period? Basically, we want to separate students who play basketball in their leisure time based on highly significant input variable among all two variables (a.k.a. predictors)
+Decision tree is useful here in that it will segregate the students based on all values of two variable. The variable which creates the best similar sets of students (i.e. sets which are dissimilar to each other). 
 
-`earnings` = What each employee earns in dollars per day
+![](http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/random_forests.png)
 
-`s_rating` = How satisfied the employee is with his/her wage
 
-From this dataset, we will try to predict a new employee's satisfaction rating when he is paid $200, $400, or $1200 per day.
-So, earnings is the predictor and s_rating is the class we'll predict.
+In the figure above, you can see that variable Gender is able to identify best subpopulation sets compared to the variable height.
 
-This exercise uses just one attribute for prediction and that is employee’s `earnings`. 
-
-It is machine learning practice to partition dataset for analysis into Training and Test sets.
-
-The training set could be 60 - 70% of the entire dataset while the test set is the percentage remaining.
-The createDataPartition() function that comes with the caret package can be used to split the data. This function is used like so:
-Suppose `myData` is the name of a dataset and I want to predict `class` an attribute in the dataset `myData` .  
-
-inTrain <- createDataPartition(y= myData$class, p=0.7, list=FALSE)
-
-training <- myData[inTrain, ]
-
-test <- myData[-inTrain, ]
-
-`p` is set to `0.7` because we need 70% of the whole data and list is set to FALSE because we don't want the function to return `inTrain` as a list.
+Now let’s see an example. Using the Wage dataset in R provided by the ISLR package, you will create a model to predict wage based on input variables age, education and job class.
 
 
 *** =instructions

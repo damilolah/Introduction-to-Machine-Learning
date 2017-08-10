@@ -63,6 +63,7 @@ test <- myData[-inTrain, ]
 library(caret)
 
 # Creating the dataset
+
 earnings <- c(120, 100, 700, 200, 60, 20, 200, 130, 150, 160, 170, 180, 190, 210, 220, 400, 550, 670, 695, 300)
 
 s_rating<- c(50, 60, 80, 75, 50, 70, 75, 60, 50, 65, 70, 71,80, 82, 85, 80, 88, 90, 90, 60)
@@ -86,7 +87,6 @@ training <- emp_data[inTrain,]
 test <- 
 
 # Print out training and test sets and show the dimensions of each set
-
 ```
 
 *** =solution
