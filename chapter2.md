@@ -36,7 +36,7 @@ test <- myData[-inTrain, ]
 
 
 *** =instructions
-- Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis. Plot function is used like this: `plot(x, y, data=myData)`
+- Plot `emp_data` with earnings on the x-axis and s_rating on the y-axis. Plot function is used like this: `plot(x, y,  col=y, main="Regression Modelling")` where y determines the color of each point and main contains the title of the plot.
 - Use createDataPartition() function in R to partition your dataset
 - Your training set should be 60% of the entire dataset 
 - Print out the training and test sets  
@@ -111,7 +111,7 @@ dim(emp_data)
 
 # Some exploratory data analyses 
 par(cex=.8)
-plot(earnings, s_rating, data = emp_data, col=s_rating, main="Regression Modelling")
+plot(earnings, s_rating, col=s_rating, main="Regression Modelling")
 
 
 # Partition the data into training and test datasets
