@@ -202,11 +202,11 @@ Activities done in this step also includes detecting the presence of missing (NA
 
 As we saw from the example on satisfaction ratings, predicting continuous variables gives results that are not exactly precise. So for this example, we will present our results in terms of categories. 
 
-We will divide the wage column into 20 categories and add another column called wage_range to the Wage dataset. Each observed wage will therefore fall under one of these 20 categories. 
+We will divide the wage column into 12 categories and add another column called wage_range to the Wage dataset. Each observed wage will therefore fall under one of these 12 categories. 
 
 * A good model will predict the right range of wages a person can earn.
 
-        wage_range <- cut(Wage$wage, b = 20)
+        wage_range <- cut(Wage$wage, b = 12)
         Wage$wage_range <- wage_range
 
 *** =instructions
@@ -237,7 +237,7 @@ qplot(age, wage, data=Wage, colour = race)
 Wage<- subset(Wage, select=- c(logwage)
 
 # Add wage_range to Wage datasets 
-  wage_range <- cut(Wage$wage, b = 20)
+  wage_range <- cut(Wage$wage, b = 12)
   Wage$wage_range <- wage_range
 
 ```
@@ -257,7 +257,7 @@ qplot(age, wage, data=Wage, colour = education)
 # Wage<- subset(Wage, select=- c(logwage))  remove this line after creating pre-exercise code
 Wage<- subset(Wage, select=- c(health, health_ins, region, race, year, sex, maritl))
 # Add wage_range to Wage datasets 
-  wage_range <- cut(Wage$wage, b = 15)
+  wage_range <- cut(Wage$wage, b = 12)
   Wage$wage_range <- wage_range
 
 ```
@@ -283,14 +283,14 @@ In this step, you will:
 * Partition the data into `training` and `test` sets.
 * Create a random forest model called `rf_model` to predict `wage` based on three input variables - `age`, `education` and `job class`.The function randomForest() is used to create a random forest model like this:
     
-    `rf_model <- randomForest(wage_range ~ age + jobclass + education, data = training, importance = TRUE, ntree=200)`
+    `rf_model <- randomForest(wage_range ~ age + jobclass + education, data = training, importance = TRUE, ntree=500)`
 
 
 *** =instructions
 - Use createDataPartition() function to partition your dataset. Your training set should be 70% of the entire dataset 
-- Print out the training and test sets and check the dimension of both datasets to know more about the data
+- Print out the first few observations of training and test sets and check the dimension of both datasets to know more about the data
 - Now plot the training dataset with age on the x-axis, wage on the y-axis and make the colour based on education. What do you notice?
-- Create you own `rf_model`, but this time grow 500 trees. Print `rf_model` to console.
+- Create you own `rf_model`, but this time grow 800 trees. Print `rf_model` to console.
 
 
 print(rf_model)
@@ -300,8 +300,8 @@ print(rf_model)
 - To print a variable to the console, simply type the name of the variable on a new line.
 - Use `qplot()` for the third instruction. Just as you did in the previous exercise.
 - Do you notice that the plot created usinf training set is similar to the plot done on the whole Wage dataset. This is because the createDataPartition function splits the data evenly into training and test sets.
-- For the last instruction, set `ntree` to 500. Print rf_model to console.
-- To print a variable to the console, simply type the name of the variable on a new line.
+- For the last instruction, set `ntree` to 800. Print rf_model to console.
+- Use head() function for the second instruction. To print a variable to the console, simply type the name of the variable on a new line. 
 
 *** =pre_exercise_code
 ```{r}
@@ -314,21 +314,14 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/dat
 ```{r}
 # Partition the data into training and test datasets
 
-inTrain <- createDataPartition(y= Wage$wage_range, p=0.7, list=FALSE)
+inTrain <- 
 
-training <- Wage[inTrain, ]
+training <- 
 
-test <- Wage[-inTrain, ]
+test <- 
 
 # Print out training and test sets and show the dimensions of each set
 
-training
-
-test
-
-dim(training)
-
-dim(test)
 
 # Observe plot of training set
 qplot(age, wage, data=training, colour = education)
@@ -349,11 +342,11 @@ training <- Wage[inTrain, ]
 
 test <- Wage[-inTrain, ]
 
-# Print out training and test sets and show the dimensions of each set
+# Print out first few observations of the training and test sets and show the dimensions of each set
 
-training
+head(training)
 
-test
+head(test)
 
 dim(training)
 
@@ -365,7 +358,7 @@ qplot(age, wage, data=training, colour = education)
 
 # Create your randomForest model
 
-rf_model <- randomForest(wage_range ~ age + jobclass + education, data = training, importance = TRUE, ntree=500)
+rf_model <- randomForest(wage_range ~ age + jobclass + education, data = training, importance = TRUE, ntree=800)
 rf_model
 ```
 
@@ -416,7 +409,7 @@ To check accuracy of your model, calculate RMSE using postResample() function li
 
 *** =pre_exercise_code
 ```{r}
-load(url(""))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4925/datasets/ml5.RData"))
 ```
 
 *** =sample_code
@@ -424,17 +417,19 @@ load(url(""))
 
 # Test your `rf_model` by using the predict function.
 
-pred_wage<-
+pred_wage_range<- 
 
 # Compare predicted wage to original wage of test dataset.
 
-compare_result <-
+compare_result <- 
   
 # Print out the first few observation of compare_result 
 
 
 
 # Check accuracy by calculating the RMSE 
+
+
 
 
 
@@ -449,15 +444,16 @@ pred_wage_range<- predict(rf_model, test)
 
 # Compare predicted wage to original wage of test dataset.
 
-compare_result <- data.frame(testing$wage_range, pred_wage_range)
-  
+compare_result <- data.frame(test$wage_range, pred_wage_range)
+
 # Print out the first few observation of compare_result 
 
- head(compare_result) 
+head(compare_result) 
 
 # Check accuracy by calculating the RMSE 
 
-postResample(testing$wage_range, pred_wage_range)
+postResample(test$wage_range, pred_wage_range)
+
 
 ```
 
