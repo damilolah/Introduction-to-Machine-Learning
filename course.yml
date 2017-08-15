@@ -1,7 +1,8 @@
 title: Introduction to Machine Learning in R
-description: This is an instructional Resource on Machine Learning brought to you
-  by Digital Libraries Initiatives at North Carolina State University.
-instructor: Ruth Okoilu
+description: "This is an instructional Resource on Machine Learning brought to you
+  by Digital Libraries Initiatives at North Carolina State University."
+instructors: 
+ - https://www.datacamp.com/profile/ruthokoilu
 university: North Carolina State University
 difficulty_level: 2
-time_needed: 2 hours
+time_needed: 4 hours
