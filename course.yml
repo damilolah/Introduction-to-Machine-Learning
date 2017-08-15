@@ -5,5 +5,3 @@ instructor: Ruth Okoilu
 university: North Carolina State University
 difficulty_level: 2
 time_needed: 2 hours
-datasets:
-  ml5.RData: Ml5
