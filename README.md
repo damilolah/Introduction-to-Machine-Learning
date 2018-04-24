@@ -1,6 +1,6 @@
 # DataCamp Template Course
-<a href=https://www.datacamp.com//teach/repositories/99583034/go target="_blank"><img src="https://s3.amazonaws.com/assets.datacamp.com/img/github/content-engineering-repos/course_button.png" width="150"></a>
-<a href=https://www.datacamp.com//teach/repositories target="_blank"><img src="https://s3.amazonaws.com/assets.datacamp.com/img/github/content-engineering-repos/dashboard_button.png" width="150"></a>
+<a href=https://www.datacamp.com/courses/4925 target="_blank"><img src="https://s3.amazonaws.com/assets.datacamp.com/img/github/content-engineering-repos/course_button.png" width="150"></a>
+<a href=https://www.datacamp.com/courses/4925 target="_blank"><img src="https://s3.amazonaws.com/assets.datacamp.com/img/github/content-engineering-repos/dashboard_button.png" width="150"></a>
 
 This is an instructional Resource on Machine Learning brought to you by Digital Libraries Initiatives at North Carolina State University. 
 
