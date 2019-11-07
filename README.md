@@ -7,6 +7,8 @@ https://www.datacamp.com/courses/4925
 
 This is an instructional Resource on Machine Learning brought to you by Digital Libraries Initiatives at North Carolina State University. 
 
+Link to  <a href="https://drive.google.com/file/d/0BzdX5AP7G5RueFRpZ19TZkZtbEE/view">Presentation/Article</a>
+
 This course is available on <a href=https://www.datacamp.com/teach/repositories/99583034/go target="_blank">DataCamp</a>
 
 * `Course Instructor`:  `Ruth Okoilu`
